@@ -1,0 +1,112 @@
+{% extends 'base.html' %}
+
+{% block title %}Higijena {{ check.work_date|date:"d.m." }} · HACCP{% endblock %}
+
+{% block content %}
+<section class="section">
+  <div class="wrap narrow-read">
+    <h1>Higijena · {{ check.work_date|date:"d.m.Y" }}</h1>
+
+    <div class="stat-row hygiene-stats">
+      <div class="stat">
+        <span class="stat-k">Svakodnevne</span>
+        <strong>{{ check.required_done_count }}/{{ check.required_total_count }}</strong>
+      </div>
+      <div class="stat {% if check.status != 'done' %}stat-bad{% endif %}">
+        <span class="stat-k">Status</span>
+        <strong class="stat-text">{% if check.status == 'done' %}Gotovo{% else %}U toku{% endif %}</strong>
+      </div>
+    </div>
+    <p class="lede hygiene-progress-label">
+      {{ check.required_done_count }} od {{ check.required_total_count }} svakodnevnih kontrola
+    </p>
+
+    {% if check.completed_by %}
+      <p class="lede">
+        {{ check.completed_by.get_full_name|default:check.completed_by.username }}
+        {% if check.completed_at %} · {{ check.completed_at|date:"d.m.Y H:i" }}{% endif %}
+      </p>
+    {% endif %}
+
+    <form method="post" class="hygiene-form">
+      {% csrf_token %}
+      <input type="hidden" name="from" value="{{ from_key }}">
+
+      <div class="block-head">
+        <h2>Svakodnevne kontrole</h2>
+      </div>
+      <div class="hygiene-lines">
+        {% for line in daily_lines %}
+          <label class="hygiene-line {% if line.is_done %}is-on{% endif %}">
+            <input
+              type="checkbox"
+              name="line_{{ line.pk }}"
+              {% if line.is_done %}checked{% endif %}
+              {% if readonly %}disabled{% endif %}
+            >
+            <span class="hygiene-line-body">
+              <strong>{{ line.label }}</strong>
+              <span>
+                <em class="cadence cadence-{{ line.cadence }}">{{ line.get_cadence_display }}</em>
+                {% if line.is_required %} · obavezno danas{% endif %}
+                {% if line.done_by %} · {{ line.done_by.get_full_name|default:line.done_by.username }}{% endif %}
+                {% if line.done_at %} · {{ line.done_at|date:"H:i" }}{% endif %}
+              </span>
+            </span>
+          </label>
+        {% empty %}
+          <p class="lede">Nema svakodnevnih stavki.</p>
+        {% endfor %}
+      </div>
+
+      {% if periodic_lines %}
+        <details class="hygiene-periodic">
+          <summary>
+            Periodične kontrole
+            <span class="hygiene-periodic-meta">nedeljno · mesečno</span>
+          </summary>
+          <p class="lede hygiene-periodic-hint">
+            Nisu obavezne za završetak dnevne provere. Označi ih kada ih uradiš po rasporedu.
+          </p>
+          <div class="hygiene-lines hygiene-lines-periodic">
+            {% for line in periodic_lines %}
+              <label class="hygiene-line {% if line.is_done %}is-on{% endif %}">
+                <input
+                  type="checkbox"
+                  name="line_{{ line.pk }}"
+                  {% if line.is_done %}checked{% endif %}
+                  {% if readonly %}disabled{% endif %}
+                >
+                <span class="hygiene-line-body">
+                  <strong>{{ line.label }}</strong>
+                  <span>
+                    <em class="cadence cadence-{{ line.cadence }}">{{ line.get_cadence_display }}</em>
+                    · po rasporedu
+                    {% if line.done_by %} · {{ line.done_by.get_full_name|default:line.done_by.username }}{% endif %}
+                    {% if line.done_at %} · {{ line.done_at|date:"H:i" }}{% endif %}
+                  </span>
+                </span>
+              </label>
+            {% endfor %}
+          </div>
+        </details>
+      {% endif %}
+
+      <label class="form-row hygiene-note">
+        <span>Napomena</span>
+        <textarea name="note" rows="3" {% if readonly %}disabled{% endif %}>{{ check.note }}</textarea>
+      </label>
+
+      <div class="hygiene-actions">
+        {% if readonly %}
+          <button class="button" type="submit" name="action" value="reopen">Ponovo otvori</button>
+        {% else %}
+          <button class="button button-ghost" type="submit" name="action" value="save">Sačuvaj</button>
+          <button class="button" type="submit" name="action" value="complete">Završi proveru</button>
+        {% endif %}
+        <a class="button button-ghost" href="{{ history_url }}">Istorija</a>
+      </div>
+    </form>
+  </div>
+</section>
+{% endblock %}

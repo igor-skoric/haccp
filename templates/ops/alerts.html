@@ -1,0 +1,44 @@
+{% extends 'base.html' %}
+
+{% block title %}Alerti · HACCP{% endblock %}
+
+{% block content %}
+<section class="section">
+  <div class="wrap">
+    <h1>Alerti</h1>
+    {% if not alerts %}
+      <p class="lede">Nema alertova za danas.</p>
+    {% endif %}
+
+    <div class="alert-stack alert-stack-wide">
+      {% for alert in alerts %}
+        <article class="alert-card alert-{{ alert.level }} {% if not alert.open %}is-closed{% endif %}">
+          <div class="alert-top">
+            <strong>{{ alert.title }}</strong>
+            <span class="pill {% if alert.open %}pill-wait{% endif %}">
+              {% if alert.open %}Otvoren{% else %}Zatvoren{% endif %}
+            </span>
+          </div>
+          <span>{{ alert.detail }}</span>
+          <span class="alert-time">od {{ alert.since|date:"d.m. H:i" }}</span>
+          {% if alert.action and not alert.can_correct %}
+            <p class="alert-action">{{ alert.action }}</p>
+            <a class="button button-ghost alert-btn" href="{% url 'temperatures' %}">Unesi merenje</a>
+          {% elif alert.can_correct and alert.reading_id %}
+            <p class="alert-action">{{ alert.action }}</p>
+            <form method="post" action="{% url 'temperature_corrective' alert.reading_id %}" class="stack-form">
+              {% csrf_token %}
+              <input type="hidden" name="next" value="alerts">
+              <div class="form-row">
+                <label for="id_corrective_{{ alert.reading_id }}">Korektivna mera</label>
+                <textarea class="input" name="corrective_action" id="id_corrective_{{ alert.reading_id }}" rows="2" required></textarea>
+              </div>
+              <button type="submit" class="button">Sačuvaj korektivnu meru</button>
+            </form>
+          {% endif %}
+        </article>
+      {% endfor %}
+    </div>
+  </div>
+</section>
+{% endblock %}

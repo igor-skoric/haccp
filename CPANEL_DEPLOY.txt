@@ -1,0 +1,38 @@
+HACCP — deploy na cPanel (SQLite, Passenger iz Python App)
+
+1) Setup Python App u cPanel-u
+   - Kreiraj Python aplikaciju (Passenger se generiše automatski — NE dodajamo passenger_wsgi.py u git).
+   - Application root: folder gde je manage.py (npr. hasap).
+   - Application URL: https://haccp.rs.itbranch.rs (ili root tog domena).
+   - Application startup file: ostavi cPanel generisani passenger fajl.
+   - U tom fajlu (koji cPanel napravi) neka na kraju bude:
+       from haccp.wsgi import application
+     ili ekvivalent koji cPanel predloži za Django projekat "haccp".
+
+2) Environment variables (u Python App) — tačne vrednosti za ovaj domen:
+   DJANGO_DEBUG=0
+   DJANGO_SECRET_KEY=<dugi-nasumicni-string>
+   DJANGO_ALLOWED_HOSTS=haccp.rs.itbranch.rs
+   DJANGO_CSRF_TRUSTED_ORIGINS=https://haccp.rs.itbranch.rs
+   DJANGO_SECURE_SSL_REDIRECT=1
+   (ako SSL petlja → DJANGO_SECURE_SSL_REDIRECT=0)
+
+3) Terminal u cPanel-u (u application root)
+   source /home/KORISNIK/virtualenv/.../bin/activate   # putanja koju pokaže Python App
+   pip install -r requirements.txt
+   python manage.py migrate
+   python manage.py collectstatic --noinput
+   python manage.py createsuperuser   # po potrebi
+   python manage.py seed_demo         # samo ako želiš demo podatke
+
+4) Prava
+   - Folder projekta i db.sqlite3 moraju biti upisivi od strane aplikacije.
+   - Ne commit-uj .env ni db.sqlite3.
+
+5) Restart
+   - Restart Python App u cPanel-u posle izmene koda ili env.
+
+6) Provera
+   - Otvori domen, login, /danas/, statički CSS (WhiteNoise služi /static/).
+   - Ako CSRF greška: proveri DJANGO_CSRF_TRUSTED_ORIGINS (mora https://domen).
+   - Ako SSL petlja: DJANGO_SECURE_SSL_REDIRECT=0 pa restart.

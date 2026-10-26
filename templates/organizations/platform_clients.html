@@ -1,0 +1,24 @@
+{% extends 'base.html' %}
+
+{% block title %}Klijenti · HACCP{% endblock %}
+
+{% block content %}
+<section class="section">
+  <div class="wrap narrow-read">
+    <h1>Klijenti</h1>
+    <p class="lede">Izaberi kompaniju da vidiš korisnike i otvoriš aplikaciju u njihovo ime.</p>
+    <div class="settings-list">
+      {% for item in organizations %}
+        <a href="{% url 'platform_client_detail' item.pk %}">
+          <strong>{{ item.name }}</strong>
+          <span>{{ item.industry.name }} · {{ item.member_count }}</span>
+        </a>
+      {% empty %}
+        <div class="settings-company">
+          <span>Nema klijenata</span>
+        </div>
+      {% endfor %}
+    </div>
+  </div>
+</section>
+{% endblock %}

@@ -1,0 +1,28 @@
+{% extends 'base.html' %}
+
+{% block title %}Nemate pristup · HACCP{% endblock %}
+
+{% block content %}
+<section class="section">
+  <div class="wrap narrow-read">
+    <h1>Nemate pristup</h1>
+    <p class="lede">
+      Ova stranica nije dostupna za tvoj nalog.
+      {% if can_pick_org %}
+        Izaberi klijenta i korisnika preko Klijenti, ili otvori konfiguraciju objekta u Podešavanjima.
+      {% else %}
+        Vrati se na početnu ili se prijavi drugim nalogom.
+      {% endif %}
+    </p>
+    <div class="hygiene-actions">
+      {% if can_pick_org %}
+        <a class="button" href="{% url 'platform_clients' %}">Klijenti</a>
+      {% elif request.user.is_authenticated %}
+        <a class="button" href="{% url 'today' %}">Početna</a>
+      {% else %}
+        <a class="button" href="{% url 'login' %}">Prijava</a>
+      {% endif %}
+    </div>
+  </div>
+</section>
+{% endblock %}

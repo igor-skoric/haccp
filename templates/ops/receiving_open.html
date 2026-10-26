@@ -1,0 +1,33 @@
+{% extends 'base.html' %}
+
+{% block title %}Nezavršeni prijemi · HACCP{% endblock %}
+
+{% block content %}
+<section class="section">
+  <div class="wrap">
+    <h1>Nezavršeni prijemi</h1>
+    <p class="lede">Otvorene evidencije OB-15 koje još nisu završene.</p>
+
+    {% if open_receipts %}
+      <div class="task-list">
+        {% for task in open_receipts %}
+          {% include 'ops/_task_row.html' with task=task next='today' from_key='receiving_open' %}
+        {% endfor %}
+      </div>
+    {% else %}
+      <p class="lede">Nema nezavršenih prijema.</p>
+    {% endif %}
+
+    {% if receiving_available %}
+      <div class="hygiene-actions">
+        <form method="post" action="{% url 'receiving_create' %}">
+          {% csrf_token %}
+          <input type="hidden" name="next" value="{{ return_key }}">
+          <input type="hidden" name="from" value="receiving_open">
+          <button class="button" type="submit">Novi prijem</button>
+        </form>
+      </div>
+    {% endif %}
+  </div>
+</section>
+{% endblock %}

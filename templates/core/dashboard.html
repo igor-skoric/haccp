@@ -1,0 +1,20 @@
+{% extends 'base.html' %}
+
+{% block title %}Dokumentacija · HACCP{% endblock %}
+
+{% block content %}
+<section class="section">
+  <div class="wrap">
+    <h1>Dokumentacija</h1>
+    <div class="hub">
+      {% for card in cards %}
+        <a class="hub-card" href="{% url card.url_name %}">
+          <span class="doc-code">{{ card.code }}</span>
+          <strong>{{ card.label }}</strong>
+          <span>{{ card.fixed }} istih od {{ card.total }}</span>
+        </a>
+      {% endfor %}
+    </div>
+  </div>
+</section>
+{% endblock %}

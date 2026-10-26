@@ -1,0 +1,26 @@
+{% extends 'base.html' %}
+
+{% block title %}Prijava · HACCP{% endblock %}
+
+{% block content %}
+<section class="section">
+  <div class="wrap narrow">
+    <h1>Prijava</h1>
+    <form method="post" action="{% url 'login' %}" class="stack-form" novalidate>
+      {% csrf_token %}
+      {% if form.non_field_errors %}
+        <div class="form-errors">{{ form.non_field_errors }}</div>
+      {% endif %}
+      {% for field in form %}
+        <div class="form-row">
+          <label for="{{ field.id_for_label }}">{{ field.label }}</label>
+          {{ field }}
+          {{ field.errors }}
+        </div>
+      {% endfor %}
+      <button class="button" type="submit">Prijavi se</button>
+    </form>
+    <p class="form-switch">Nemate nalog? <a href="{% url 'register' %}">Registrujte objekat</a></p>
+  </div>
+</section>
+{% endblock %}

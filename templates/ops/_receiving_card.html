@@ -1,0 +1,21 @@
+<article class="duty-card">
+  <div class="duty-card-body">
+    <strong>Prijem sirovina</strong>
+    <span>Evidencija prijema robe po potrebi</span>
+  </div>
+  <div class="duty-card-actions">
+    {% if receiving.available %}
+      <form method="post" action="{% url 'receiving_create' %}">
+        {% csrf_token %}
+        <input type="hidden" name="next" value="{{ next }}">
+        <input type="hidden" name="from" value="{{ from_key|default:next }}">
+        <button class="button" type="submit">Novi prijem</button>
+      </form>
+    {% endif %}
+    {% if receiving.open_count %}
+      <a class="duty-card-link" href="{{ receiving.open_url }}">
+        {{ receiving.open_count }} nezavršen{% if receiving.open_count == 1 %}{% else %}ih{% endif %}
+      </a>
+    {% endif %}
+  </div>
+</article>

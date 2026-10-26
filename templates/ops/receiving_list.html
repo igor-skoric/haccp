@@ -1,0 +1,65 @@
+{% extends 'base.html' %}
+
+{% block title %}Prijem sirovina · HACCP{% endblock %}
+
+{% block content %}
+<section class="section">
+  <div class="wrap">
+    <h1>OB-15 · Prijem sirovina</h1>
+
+    <div class="hygiene-actions">
+      {% if receiving_available %}
+        <form method="post" action="{% url 'receiving_create' %}">
+          {% csrf_token %}
+          <input type="hidden" name="next" value="list">
+          <input type="hidden" name="from" value="receiving_list">
+          <button class="button" type="submit">Novi prijem</button>
+        </form>
+      {% endif %}
+      <a class="button button-ghost" href="{% url 'tasks' %}">Zadaci</a>
+    </div>
+
+    <div class="block-head">
+      <h2>Istorija</h2>
+    </div>
+    {% if receipts %}
+      <div class="doc-list hygiene-history">
+        {% for item in receipts %}
+          <a class="doc-row" href="{% url 'receiving_detail' item.pk %}?from=receiving_list">
+
+            <span class="doc-code">{{ item.received_on|date:"d.m.Y" }}</span>
+            <span class="doc-main">
+              <strong>
+                {% if item.status == 'done' %}
+                  {% if item.result == 'passed' %}Ispravno{% elif item.result == 'failed' %}Neispravno{% else %}Završeno{% endif %}
+                {% elif item.status == 'cancelled' %}
+                  Otkazano
+                {% else %}
+                  U toku
+                {% endif %}
+                · {{ item.line_count }} stav.
+              </strong>
+              <span>
+                {% if item.status == 'cancelled' and item.cancelled_by %}
+                  {{ item.cancelled_by.get_full_name|default:item.cancelled_by.username }}
+                  {% if item.cancelled_at %} · {{ item.cancelled_at|date:"d.m.Y H:i" }}{% endif %}
+                {% elif item.completed_by %}
+                  {{ item.completed_by.get_full_name|default:item.completed_by.username }}
+                  {% if item.completed_at %} · {{ item.completed_at|date:"d.m.Y H:i" }}{% endif %}
+                {% else %}
+                  {{ item.created_by.get_full_name|default:item.created_by.username }}
+                {% endif %}
+              </span>
+            </span>
+            <span class="pill {% if item.status == 'open' %}pill-wait{% elif item.status == 'cancelled' %}pill-muted{% endif %}">
+              {% if item.status == 'done' %}Završeno{% elif item.status == 'cancelled' %}Otkazano{% else %}Otvoreno{% endif %}
+            </span>
+          </a>
+        {% endfor %}
+      </div>
+    {% else %}
+      <p class="lede">Nema zapisa.</p>
+    {% endif %}
+  </div>
+</section>
+{% endblock %}

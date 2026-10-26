@@ -1,0 +1,79 @@
+{% extends 'base.html' %}
+
+{% block title %}Temperature · HACCP{% endblock %}
+
+{% block content %}
+<section class="section">
+  <div class="wrap">
+    <h1>Temperature</h1>
+    <p class="lede">
+      OB-10 · danas {{ measured_today }}/{{ spots_total }} merenja · granica {{ min_c }}–{{ max_c }} °C
+    </p>
+
+    <div class="block-head">
+      <h2>Novo merenje</h2>
+    </div>
+    <form method="post" class="stack-form settings-detail" novalidate>
+      {% csrf_token %}
+      {% for field in form %}
+        <div class="form-row{% if field.name == 'value_c' %} form-row-half{% endif %}">
+          <label for="{{ field.id_for_label }}">{{ field.label }}</label>
+          {{ field }}
+          {{ field.errors }}
+        </div>
+      {% endfor %}
+      <button class="button settings-save" type="submit">Sačuvaj merenje</button>
+    </form>
+
+    <div class="vitrine-groups">
+      {% regroup sensors by vitrine as groups %}
+      {% for group in groups %}
+        <section class="vitrine-block">
+          <h2>{{ group.grouper }}</h2>
+          <div class="temp-grid">
+            {% for s in group.list %}
+              <article class="temp-card temp-{{ s.status }}">
+                <span class="temp-place">Merna tačka</span>
+                {% if s.temp != None %}
+                  <strong class="temp-value">{{ s.temp }}<small>{{ s.unit }}</small></strong>
+                {% else %}
+                  <strong class="temp-value temp-missing">—</strong>
+                {% endif %}
+                <span class="temp-label">{{ s.label }}</span>
+                <span class="temp-range">Granica {{ s.min_c }}–{{ s.max_c }} °C</span>
+                {% if s.updated %}
+                  <span class="temp-ago">ažurirano {{ s.updated|date:"H:i" }}</span>
+                {% else %}
+                  <span class="temp-ago">nema današnjeg merenja</span>
+                {% endif %}
+              </article>
+            {% endfor %}
+          </div>
+        </section>
+      {% empty %}
+        <p class="lede">Nema mernih tačaka.</p>
+      {% endfor %}
+    </div>
+
+    {% if history %}
+      <div class="block-head">
+        <h2>Istorija</h2>
+        <span class="muted-inline">{{ history_label }}</span>
+      </div>
+      <div class="spark-panel">
+        <div class="spark-bars" aria-hidden="true">
+          {% for p in history %}
+            <div class="spark-col">
+              <div class="spark-bar {% if p.hot %}is-hot{% endif %}" style="height: {{ p.bar }}%"></div>
+              <span>{{ p.temp }}</span>
+            </div>
+          {% endfor %}
+        </div>
+        <p class="spark-note">Crveno = van granica {{ min_c }}–{{ max_c }} °C.</p>
+      </div>
+    {% else %}
+      <p class="lede">Još nema upisanih merenja. Unesi prvu temperaturu iznad.</p>
+    {% endif %}
+  </div>
+</section>
+{% endblock %}

@@ -1,0 +1,57 @@
+{% extends 'base.html' %}
+
+{% block title %}Zadaci · Podešavanja · HACCP{% endblock %}
+
+{% block content %}
+<section class="section">
+  <div class="wrap narrow-read">
+    <h1>Zadaci</h1>
+    <p class="lede">Izmena dana ili vremena važi za naredne pojave. Već upisani rokovi ostaju.</p>
+    {% if not rows %}
+      <p class="lede">Ovom objektu još nisu dodeljeni zadaci.</p>
+    {% endif %}
+    {% for row in rows %}
+      <form method="post" class="task-setting" novalidate>
+        {% csrf_token %}
+        <input type="hidden" name="task" value="{{ row.task.pk }}">
+        <div>
+          <h2>{{ row.task.definition.title }}</h2>
+          <p class="task-setting-meta">{{ row.meta }}</p>
+          <p class="task-setting-meta">Važi od {{ row.active_label }}</p>
+          {% if row.current_label %}
+            <p class="task-setting-meta">{{ row.current_label }}</p>
+          {% endif %}
+        </div>
+        {{ row.form.non_field_errors }}
+        <div class="task-setting-fields">
+          <label class="check-line" for="{{ row.form.enabled.id_for_label }}">
+            {{ row.form.enabled }}
+            <span>{{ row.form.enabled.label }}</span>
+          </label>
+          {{ row.form.enabled.errors }}
+          {% if row.form.weekday %}
+            <div>
+              <label for="{{ row.form.weekday.id_for_label }}">{{ row.form.weekday.label }}</label>
+              {{ row.form.weekday }}
+              {{ row.form.weekday.errors }}
+            </div>
+          {% endif %}
+          {% if row.form.monthday %}
+            <div>
+              <label for="{{ row.form.monthday.id_for_label }}">{{ row.form.monthday.label }}</label>
+              {{ row.form.monthday }}
+              {{ row.form.monthday.errors }}
+            </div>
+          {% endif %}
+          <div>
+            <label for="{{ row.form.due_time.id_for_label }}">{{ row.form.due_time.label }}</label>
+            {{ row.form.due_time }}
+            {{ row.form.due_time.errors }}
+          </div>
+          <button class="button" type="submit">Sačuvaj</button>
+        </div>
+      </form>
+    {% endfor %}
+  </div>
+</section>
+{% endblock %}

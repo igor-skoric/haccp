@@ -1,0 +1,40 @@
+{% extends 'base.html' %}
+
+{% block title %}Konfiguracija · HACCP{% endblock %}
+
+{% block content %}
+<section class="section">
+  <div class="wrap narrow-read">
+    <h1>Konfiguracija</h1>
+    {% if not organization %}
+      <p class="lede">Nalog nije vezan za objekat.</p>
+    {% endif %}
+    <div class="settings-list">
+      {% if organizations %}
+        <form method="get" class="settings-company">
+          <label for="objekat">Objekat</label>
+          <select class="input" id="objekat" name="objekat" onchange="this.form.submit()">
+            {% if not organization %}
+              <option value="">Izaberi objekat</option>
+            {% endif %}
+            {% for item in organizations %}
+              <option value="{{ item.pk }}" {% if organization and item.pk == organization.pk %}selected{% endif %}>{{ item.name }}</option>
+            {% endfor %}
+          </select>
+        </form>
+      {% elif organization %}
+        <div class="settings-company">
+          <span>Objekat</span>
+          <strong>{{ organization.name }}</strong>
+        </div>
+      {% endif %}
+      {% for item in sections %}
+        <a href="{{ item.url }}">
+          <strong>{{ item.title }}</strong>
+          <span>{{ item.summary }}</span>
+        </a>
+      {% endfor %}
+    </div>
+  </div>
+</section>
+{% endblock %}

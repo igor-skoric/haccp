@@ -1,0 +1,121 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="sr">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="robots" content="noindex">
+  <title>{% block title %}HACCP{% endblock %}</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@400;500&family=IBM+Plex+Sans:wght@400;500;600&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="{% static 'css/app.css' %}?v=pro19">
+</head>
+<body class="{% if request.user.is_authenticated %}app-shell{% endif %}">
+  {% if is_impersonating %}
+    <div class="impersonation-banner" role="status">
+      <p>
+        Pregled kao
+        <strong>{{ request.user.get_full_name|default:request.user.username }}</strong>
+        {% if request.tenant %}({{ request.tenant.name }}){% endif %}
+      </p>
+      <form method="post" action="{% url 'view_as_stop' %}">
+        {% csrf_token %}
+        <button type="submit">Izađi</button>
+      </form>
+    </div>
+  {% endif %}
+  <header class="site-header">
+    <div class="header-inner">
+      <div class="header-left">
+        {% if back_url %}
+          <a class="back-btn" href="{{ back_url }}" aria-label="Nazad">
+            <svg viewBox="0 0 24 24" aria-hidden="true">
+              <path fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" d="M15 6 L9 12 L15 18"/>
+            </svg>
+          </a>
+        {% else %}
+          <a class="brand" href="{% if can_pick_org %}{% url 'platform_clients' %}{% elif request.user.is_authenticated %}{% url 'today' %}{% else %}{% url 'home' %}{% endif %}">
+            <span class="brand-mark" aria-hidden="true">H</span>
+            <span>HACCP</span>
+          </a>
+        {% endif %}
+      </div>
+      {% if not request.user.is_authenticated %}
+        <nav class="site-nav">
+          <a href="{% url 'login' %}">Prijava</a>
+          <a class="nav-cta" href="{% url 'register' %}">Registracija</a>
+        </nav>
+      {% endif %}
+    </div>
+  </header>
+
+  {% if request.user.is_authenticated %}
+    <nav class="tabbar" aria-label="Glavni meni">
+      <p class="tabbar-title">Meni</p>
+      {% if can_pick_org %}
+        <a class="{% if nav == 'clients' %}is-on{% endif %}" href="{% url 'platform_clients' %}">
+          <svg class="tab-icon" viewBox="0 0 24 24" aria-hidden="true">
+            <path fill="none" stroke="currentColor" stroke-width="1.8" stroke-linejoin="round" stroke-linecap="round" d="M4 20V8l8-4 8 4v12"/>
+            <path fill="none" stroke="currentColor" stroke-width="1.8" stroke-linejoin="round" d="M9 20v-6h6v6"/>
+          </svg>
+          <span class="tab-label">Klijenti</span>
+        </a>
+        <a class="{% if nav == 'settings' %}is-on{% endif %}" href="{% url 'settings' %}">
+          <svg class="tab-icon" viewBox="0 0 24 24" aria-hidden="true">
+            <path fill="currentColor" d="M19.14 12.94a7.4 7.4 0 0 0 .06-.94c0-.32-.02-.64-.07-.94l2.03-1.58a.5.5 0 0 0 .12-.64l-1.92-3.32a.5.5 0 0 0-.61-.22l-2.39.96a7.2 7.2 0 0 0-1.62-.94l-.36-2.54a.5.5 0 0 0-.5-.42h-3.84a.5.5 0 0 0-.5.42l-.36 2.54c-.59.23-1.14.54-1.63.94l-2.39-.96a.5.5 0 0 0-.6.22L2.74 8.84a.5.5 0 0 0 .12.64l2.03 1.58c-.05.3-.07.62-.07.94s.02.64.07.94l-2.03 1.58a.5.5 0 0 0-.12.64l1.92 3.32c.13.23.4.32.61.22l2.39-.96c.49.4 1.04.71 1.63.94l.36 2.54c.05.24.26.42.5.42h3.84c.24 0 .45-.18.5-.42l.36-2.54c.59-.23 1.14-.54 1.62-.94l2.39.96c.22.09.48 0 .61-.22l1.92-3.32a.5.5 0 0 0-.12-.64l-2.03-1.58zM12 15.6A3.6 3.6 0 1 1 12 8.4a3.6 3.6 0 0 1 0 7.2z"/>
+          </svg>
+          <span class="tab-label">Podešavanja</span>
+        </a>
+      {% else %}
+        <a class="{% if nav == 'today' %}is-on{% endif %}" href="{% url 'today' %}">
+          <svg class="tab-icon" viewBox="0 0 24 24" aria-hidden="true">
+            <path fill="none" stroke="currentColor" stroke-width="1.8" stroke-linejoin="round" stroke-linecap="round" d="M4 10.5 12 4l8 6.5V20H15v-6H9v6H4z"/>
+          </svg>
+          <span class="tab-label">Početna</span>
+        </a>
+        <a class="{% if nav == 'temps' %}is-on{% endif %}" href="{% url 'temperatures' %}">
+          <svg class="tab-icon" viewBox="0 0 24 24" aria-hidden="true">
+            <path fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" d="M10 14.2V6.2a2 2 0 1 1 4 0v8a3.4 3.4 0 1 1-4 0z"/>
+            <path fill="currentColor" d="M12 16.6a1.15 1.15 0 1 0 .01 0z"/>
+          </svg>
+          <span class="tab-label">Temperature</span>
+        </a>
+        <a class="{% if nav == 'alerts' %}is-on{% endif %}" href="{% url 'alerts' %}">
+          <svg class="tab-icon" viewBox="0 0 24 24" aria-hidden="true">
+            <path fill="none" stroke="currentColor" stroke-width="1.8" stroke-linejoin="round" stroke-linecap="round" d="M6 16V11a6 6 0 0 1 12 0v5l1.6 2H4.4z"/>
+            <path fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" d="M10 19a2 2 0 0 0 4 0"/>
+          </svg>
+          <span class="tab-label">Alerti</span>
+        </a>
+        <a class="{% if nav == 'tasks' %}is-on{% endif %}" href="{% url 'tasks' %}">
+          <svg class="tab-icon" viewBox="0 0 24 24" aria-hidden="true">
+            <path fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" d="M9 6h11M9 12h11M9 18h11"/>
+            <path fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" d="M4 6.5 5.2 7.7 7.2 5.2M4 12.5 5.2 13.7 7.2 11.2M4 18.5 5.2 19.7 7.2 17.2"/>
+          </svg>
+          <span class="tab-label">Zadaci</span>
+        </a>
+        <a class="{% if nav == 'settings' %}is-on{% endif %}" href="{% url 'settings' %}">
+          <svg class="tab-icon" viewBox="0 0 24 24" aria-hidden="true">
+            <path fill="currentColor" d="M19.14 12.94a7.4 7.4 0 0 0 .06-.94c0-.32-.02-.64-.07-.94l2.03-1.58a.5.5 0 0 0 .12-.64l-1.92-3.32a.5.5 0 0 0-.61-.22l-2.39.96a7.2 7.2 0 0 0-1.62-.94l-.36-2.54a.5.5 0 0 0-.5-.42h-3.84a.5.5 0 0 0-.5.42l-.36 2.54c-.59.23-1.14.54-1.63.94l-2.39-.96a.5.5 0 0 0-.6.22L2.74 8.84a.5.5 0 0 0 .12.64l2.03 1.58c-.05.3-.07.62-.07.94s.02.64.07.94l-2.03 1.58a.5.5 0 0 0-.12.64l1.92 3.32c.13.23.4.32.61.22l2.39-.96c.49.4 1.04.71 1.63.94l.36 2.54c.05.24.26.42.5.42h3.84c.24 0 .45-.18.5-.42l.36-2.54c.59-.23 1.14-.54 1.62-.94l2.39.96c.22.09.48 0 .61-.22l1.92-3.32a.5.5 0 0 0-.12-.64l-2.03-1.58zM12 15.6A3.6 3.6 0 1 1 12 8.4a3.6 3.6 0 0 1 0 7.2z"/>
+          </svg>
+          <span class="tab-label">Podešavanja</span>
+        </a>
+      {% endif %}
+    </nav>
+  {% endif %}
+
+  <main>
+    {% if messages %}
+      <div class="wrap" style="padding-top: 0.8rem">
+        <ul class="messages">
+          {% for message in messages %}
+            <li{% if message.tags %} class="{{ message.tags }}"{% endif %}>{{ message }}</li>
+          {% endfor %}
+        </ul>
+      </div>
+    {% endif %}
+    {% block content %}{% endblock %}
+  </main>
+</body>
+</html>

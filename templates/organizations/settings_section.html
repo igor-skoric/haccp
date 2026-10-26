@@ -1,0 +1,29 @@
+{% extends 'base.html' %}
+
+{% block title %}{{ section.title }} · Podešavanja · HACCP{% endblock %}
+
+{% block content %}
+<section class="section">
+  <div class="wrap narrow-read">
+    <h1>{{ section.title }}</h1>
+    <form method="post" class="stack-form settings-detail" novalidate>
+      {% csrf_token %}
+      {% for field in form %}
+        <div class="form-row{% if form.fields|length > 1 %} form-row-half{% endif %}">
+          {% if field.name == 'alarms_enabled' %}
+            <label class="check-line" for="{{ field.id_for_label }}">
+              {{ field }}
+              <span>{{ field.label }}</span>
+            </label>
+          {% else %}
+            <label for="{{ field.id_for_label }}">{{ field.label }}</label>
+            {{ field }}
+          {% endif %}
+          {{ field.errors }}
+        </div>
+      {% endfor %}
+      <button class="button settings-save" type="submit">Sačuvaj</button>
+    </form>
+  </div>
+</section>
+{% endblock %}

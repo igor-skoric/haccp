@@ -1,0 +1,69 @@
+{% extends 'base.html' %}
+
+{% block title %}{{ document.code }} {{ document.title }} · HACCP{% endblock %}
+
+{% block content %}
+<section class="section">
+  <div class="{% if view.mode == 'fines' %}wrap{% else %}narrow-read{% endif %}">
+    <p class="eyebrow">{{ document.code }}</p>
+    <h1>{{ document.title }}</h1>
+    <p class="source">Izvorni fajl: {{ document.source_filename }}</p>
+    {% if document.is_fixed %}
+      <p class="pill">Isto za sve klijente</p>
+
+      {% if view.mode == 'fines' %}
+        {% if view.intro %}
+          <p class="lede fine-intro">{{ view.intro|linebreaksbr }}</p>
+        {% endif %}
+        <div class="fine-list">
+          {% for item in view.entries %}
+            <article class="fine-row">
+              <span class="fine-n">{{ item.n }}</span>
+              <div class="fine-main">
+                <p class="fine-finding">{{ item.finding }}</p>
+                <div class="fine-meta">
+                  {% if item.norm %}<span class="fine-norm">{{ item.norm }}</span>{% endif %}
+                  {% if item.fine %}<span class="fine-amount">{{ item.fine }}</span>{% endif %}
+                </div>
+              </div>
+            </article>
+          {% endfor %}
+        </div>
+
+      {% elif view.blocks %}
+        <div class="read-doc read-{{ view.mode }}">
+          {% for b in view.blocks %}
+            {% if b.type == 'h' %}
+              <h2 class="read-h">
+                {% if b.n %}<span class="read-n">{{ b.n }}</span>{% endif %}
+                {{ b.text }}
+              </h2>
+            {% elif b.type == 'section' %}
+              <h3 class="read-section">{{ b.text }}</h3>
+            {% elif b.type == 'p' %}
+              <p class="read-p">{{ b.text }}</p>
+            {% elif b.type == 'li' %}
+              <p class="read-li"><span class="read-bullet">–</span> {{ b.text }}</p>
+            {% elif b.type == 'q' %}
+              <div class="read-q">
+                <span class="read-n">{{ b.n }}</span>
+                <p>{{ b.text }}</p>
+              </div>
+            {% elif b.type == 'field' %}
+              <div class="read-field">
+                <span class="read-field-label">{{ b.text }}</span>
+                <span class="read-field-value">{% if b.meta %}{{ b.meta }}{% else %}————————{% endif %}</span>
+              </div>
+            {% endif %}
+          {% endfor %}
+        </div>
+      {% else %}
+        <article class="doc-body">{{ document.body }}</article>
+      {% endif %}
+    {% else %}
+      <p class="pill pill-wait">Prilagođava se objektu</p>
+      {% if document.note %}<p class="lede">{{ document.note }}</p>{% endif %}
+    {% endif %}
+  </div>
+</section>
+{% endblock %}

@@ -1,0 +1,30 @@
+{% extends 'base.html' %}
+
+{% block title %}Podešavanja · HACCP{% endblock %}
+
+{% block content %}
+<section class="section">
+  <div class="wrap narrow-read">
+    <h1>Podešavanja</h1>
+    <div class="settings-list">
+      {% if can_pick_org %}
+        <a href="{% url 'platform_clients' %}">
+          <strong>Klijenti</strong>
+        </a>
+      {% endif %}
+      {% if can_configure or can_pick_org %}
+        <a href="{{ config_url }}">
+          <strong>Konfiguracija</strong>
+        </a>
+      {% endif %}
+      <a href="{% url 'dashboard' %}">
+        <strong>Dokumentacija</strong>
+      </a>
+      <form method="post" action="{% url 'logout' %}">
+        {% csrf_token %}
+        <button class="settings-logout" type="submit">Odjava</button>
+      </form>
+    </div>
+  </div>
+</section>
+{% endblock %}

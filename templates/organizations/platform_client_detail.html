@@ -1,0 +1,30 @@
+{% extends 'base.html' %}
+
+{% block title %}{{ organization.name }} · HACCP{% endblock %}
+
+{% block content %}
+<section class="section">
+  <div class="wrap narrow-read">
+    <h1>{{ organization.name }}</h1>
+    <p class="lede">{{ organization.industry.name }}</p>
+    <div class="settings-list">
+      {% for member in members %}
+        <div class="member-row">
+          <div class="member-meta">
+            <strong>{{ member.get_full_name|default:member.username }}</strong>
+            <span>{{ member.username }} · {{ member.get_role_display }}</span>
+          </div>
+          <form method="post" action="{% url 'view_as_start' member.pk %}">
+            {% csrf_token %}
+            <button class="btn-view-as" type="submit">View as user</button>
+          </form>
+        </div>
+      {% empty %}
+        <div class="settings-company">
+          <span>Nema korisnika</span>
+        </div>
+      {% endfor %}
+    </div>
+  </div>
+</section>
+{% endblock %}

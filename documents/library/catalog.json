@@ -1,0 +1,382 @@
+[
+  {
+    "code": "HP-01",
+    "kind": "HP",
+    "title": "Opis proizvoda",
+    "source_filename": "HP-1-opis proizvoda.docx",
+    "is_fixed": false,
+    "note": "Naziv, namena, pakovanje i mesto prodaje zavise od objekta.",
+    "sort_order": 1,
+    "body": ""
+  },
+  {
+    "code": "HP-02",
+    "kind": "HP",
+    "title": "Dijagram toka",
+    "source_filename": "HP-2-dijagram toka.docx",
+    "is_fixed": false,
+    "note": "Crtež procesa je poseban za svaki objekat. U šablonu nema tekstualnog dijagrama.",
+    "sort_order": 2,
+    "body": ""
+  },
+  {
+    "code": "HP-03",
+    "kind": "HP",
+    "title": "Analiza opasnosti",
+    "source_filename": "HP-3- analiza opasnosti.docx",
+    "is_fixed": false,
+    "note": "Opasnosti i ocena rizika prate tehnologiju i asortiman objekta.",
+    "sort_order": 3,
+    "body": ""
+  },
+  {
+    "code": "HP-04",
+    "kind": "HP",
+    "title": "HACCP plan",
+    "source_filename": "HP-4-haccp plan.docx",
+    "is_fixed": false,
+    "note": "Kritične tačke, granice, ko meri i korektivne mere zavise od procesa.",
+    "sort_order": 4,
+    "body": ""
+  },
+  {
+    "code": "PR-01",
+    "kind": "PR",
+    "title": "Odluka o HACCP timu",
+    "source_filename": "PR-1-odluka.doc",
+    "is_fixed": false,
+    "note": "Imena članova tima, mesto i datum potpisa su podaci objekta.",
+    "sort_order": 5,
+    "body": ""
+  },
+  {
+    "code": "PR-02",
+    "kind": "PR",
+    "title": "Interne provere",
+    "source_filename": "PR-2-interne provere.doc",
+    "is_fixed": true,
+    "note": "",
+    "sort_order": 6,
+    "body": "1. Cilj primene Ovom procedurom se definiše postupak i način za izvođenje interne provere sistema u cilju: Utvrđivanja da li je sistem usaglašen sa zahtevima HACCP principa; Utvrđivanja efektivnosti i efikasnosti HACCP sistema Unapređenja HACCP sistema\n\n2. Oblast primene Sve interne provere koje se sprovode , zasnovane su na zahtevima HACCP.\n\n3. Veza sa drugim dokumentima Poslovnik Veza sa standardima Zahtevi HACCP-a,CAC/RCP 1-1969, Rev.5-2020 Vezane procedure Primena procedure za interne provere obuhvata sve procedure.\n\n4. Definicije Proverivač – Osoba obučena da obavlja proveru zahteva HACCP -a Interna provera HACCP sistema– Skup planiranih i dokumentovanih aktivnosti koje obavlja u subjekat sa ciljem da se ustanovi, na objektivan način, stvarno stanje u vezi zadovoljenja HACCP principa HACCP – Analiza opasnosti i kritične kontrolne tačke\n\n5. Potrebni resursi Osposobljeni interni proverivači Dokumentovan postupak provere Standardi Dokumenta i zapisi HACCP sistema Zakonski propisi\n\n6. Odgovornosti Za sprovođenje , kontrolu i preispitivanje ove procedure odgovoran je vođa HACCP tima Eksterni proverivači imaju odgovornost za sprovođenje interne provere\n\n7. Postupak\n\n7.1 Dijagram toka Red. broj\n\nPlaniranje provere U cilju provere efikasnosti i efektivnosti HACCP sistema, vođa HACCP tima planira termin i obim interne provere (najmanje jednom godišnje)\n\nTermin plan i obim interne provere\n\nUsaglašenje termina Vođa tima usaglašava termin provere sa osobom odgovornom za proveravano područje.\n\nUsaglašen teremin plan\n\nObaveštenje o internoj proveri Na osnovu plana (redovna interna provera) ili na osnovu ukazane potrebe (vanredna interna provera) vođa tima za proveru određuje predmet provere i sastav tima za proveru i o tome tim usmeno obaveštava vođu HACCP tima ,tim za proveru i proveravane\n\nProgram i plan interne provere Vođa tima za proveru pravi program interne provere. Na osnovu plana interne provere proverivači na obrascu lista pitanja za internu proveru prave pitanja koja će koristiti pri proveri.\n\nProgram i plan provere Lista kontrolnih pitanja interne provere\n\nSprovođenje interne provere Proverivači izvode proveru prema planu i pripremljenim pitanjima /ček lista/.\n\nProgram i plan interne provere Lista kontrolnih pitanja\n\nDefinisanje i dokumentovanje neusaglašenosti Nakon izvršene provere tim za proveru evidentira otkrivene neusaglašenosti odnosno vrše definisanje i dokumentovanje neusaglašenosti\n\nLista kontrolnih pitanja Nalog za sprovođenje korektivnih i preventivnih mera\n\nIzveštavanje o sprovedenoj internoj proveri: Nakon izvršene provere tim za proveru pravi izveštaj o internoj proveri .\n\nIzveštaj o sprovedenoj internoj proveri intenoj proveri\n\nAktivnost - Odluka - Aktivnost/Odluka - Početak/Kraj O - primarna odgovornost, U - učesnik, I - informiše seu - ulazna dokumenta, i - izlazna dokumenta\n\n1.vođa HACCP tima\n\n2. Vođa tima za proveru\n\n3. Tim za proveru\n\n8. Zapisi: Red. broj\n\nNaziv zapisa\n\nMedij čuvanja\n\nVreme čuvanja\n\nOdgovorno lice za arhiviranje dokumenata\n\nTermin plan internih provera\n\nPapir\n\n3 godine\n\nVođa HACCP tima\n\nProgram interne provere\n\nPapir\n\n3 godine\n\nVođa HACCP tima\n\nLista kontrolnih pitanja\n\nPapir\n\n3 godine\n\nVođa HACCP tima\n\nNalog za sprovođenje korektivnih i preventivnih mera\n\nPapir\n\n3 godine\n\nVođa HACCP tima\n\nIzveštaj o sprovedenoj internoj proveri\n\nPapir\n\n3 godine\n\nVođa HACCP tima\n\n9. Obrasci Nalog za sprovođenje korektivnih i preventivnih mera... OB-1 Plan interne provere……………………………………..OB-2\n\n10. Izmene dokumenta br"
+  },
+  {
+    "code": "PR-03",
+    "kind": "PR",
+    "title": "Dezinsekcija i deratizacija",
+    "source_filename": "PR-3-DD.doc",
+    "is_fixed": true,
+    "note": "",
+    "sort_order": 7,
+    "body": "1.Cilj primene Cilj procedure je sistematska i preventivna zaštita radnog prostora od štetnog dejstva mikroorganizama, insekata, glodara . 2 .Oblast primene Procedura se odnosi na dezinsekciju i deratizaciju u prostoru u kome se vrsi proizvodnja hrane. 3.Veza sa drugim dokumentima Procedura je vezana sledećim procedurama: Procedura primene HACCP HACCP plan Procedura je vezana sledećim dokumentima: Zakon o proizvodnji i prometu otrovnih materija (”Sl. list SRJ”, br.15/95/,28/96,37/02 i „Sl.glasnik RS” br.101/05) Zakon o sanitarnom nadzoru (”Sl. glasnik RS”, br. 125/2004) Zakon o zdravstvenom nadzoru nad životnim namirnicama i predmeta opšte upotrebe (“Sl.glasnik RS”,br. 44/91, 53/93 i 48/94)\n\n4. Definicije DD –dezinsekcija i deratizacija Dezinsekcija-uništavanje letećih i gamižućih insekata i njihovih razvojnih oblika, putem raspršivanja insekticida u sitne kapljice sa kontaktnim i rezidualnim-produženim dejstvom na insekte. Deratizacija-uništavanje mišolikih glodara, raznim hemijskim sredstvima, postavljanjem mamaca ili lepkova.\n\n5. Potrebni resursi Kompetentno osoblje Finansijska sredstva Pravilnici, propisi Organizacija koja je ovlašćena za vršenje DD, u skladu sa HACCP principima\n\n6. Odgovornosti Za kontrolu i preispitivanje ove procedure odgovoran je vođa HACCP tima Za sprovođenje ove procedure u praksi odgovoran je predstavnik HACCP tima\n\n7. Postupak\n\n7.1 Dijagram toka Red. broj\n\nIzrada plana DD Proces DD se planira. Predstavnik HACCP tima izrađuje godišnji plan na obrascu (OB-20) u saradnji sa vođom HACCP tima.\n\nGodišnji plan DD\n\nAnaliza i odobrenje plana Vođa HACCP tima razmatra plan i odobrava ga, verifikuje isti. Pošto je plan odobren, aktivnosti DD se nastavljaju na osnovu usvojenog plana. Ako plan nije odobren, aktivnosti se ponavljaju /pravi se novi plan/.\n\nUsvojeni plan\n\nIzrada tendera za spoljne izvođače DD aktivnosti Analizom planiranih mogućnosti i raspoloživih resursa kao i to da pojedine aktivnosti DD izvršava spoljna organizacija, predstavnik HACCP tima u saradnji sa vođom HACCP tima pravi tender za izvođenje predmetnih aktivnosti i isti šalje organizacijama koje su ovlašćene za obavljanje ovih poslova.\n\nUsvojeni plan Tender za izvođenje DD aktivnosti\n\nPrikupljanje i obrada ponuda Predstavnik HACCP tima organizuje prikupljanje ponuda od kompetentnih organizacija i na osnovu prikupljenih ponuda ovlašćenih ustanova i preduzeća, vođa HACCP tima vrši odabir izvršioca i daje predlog za sklapanje ugovora.\n\nPonuda\n\nIzbor spoljnjeg izvođača i ugovaranje Na osnovu pripremljenih ponuda i na preporuku, vođe HACCP tima zaključuje godišnji ugovor o obavljanju DD poslova.Dalje se radi po odobrenom i verifikovanom planu .\n\nUgovor\n\nPriprema objekta za DD aktivnosti Da bi DD bila uspešna radi se po nalogu i instrukcijama za pripremu objekta, prostora i opreme pre izvođenja DD (prilog) . Pripremu objekta vrše izvršioci u saradnji sa predstavnikom HACCP tima.\n\nUsvojeni plan Ugovor\n\nKontrola izvedenih pripremnih radnji Pre planiranog termina svake DD aktivnosti, predstavnik HACCP tima proverava i utvrđuje aktivnosti sprovedenih priprema objekta, prostora i sl. za početak aktivnosti DD.\n\nTretiranje pogona DD sredstvima u skladu sa HACCP načelima Ako je priprema dobra, predstavnik HACCP tima daje nalog izvođaču radova za rad. Nakon toga izvršilac DD prema uputstvima proizvođača sredstava za DD vrši aktivnosti DD . Podatke o izvršenoj DD izvršioc radova unosi u odgovarajući dokument-potvrdu, koja dalje služi kao zapis i osnova za kontrolu, evidenciju i poboljšanje.\n\nPotvrda izvođača o sprovedenim DD merama\n\nKontrola sprovedenih DD aktivnosti Predstavnik HACCP tima proverava izvršenje DD, prema preporuci ugovorenog izvođača DD i konstatuje efikasnost izvršene aktivnosti DD i rezultate evidentira na obrascu OB-21.Ako postoje propusti u sprovođenju DD mera postupak se ponavlja od tačke 6\n\nPotvrda o sprovedenim DD merama Evidencija DD\n\nMonitoring Predstavnik HACCP tima vrši monitoring glodara i insekata u objektima i krugu ,na osnovu ček lista za monitoring glodara i insekata i liste evidencije.\n\nEvidencija DD Ček lista za monitoring glodara Ček lista za monitoring insekata\n\nAnaliza, evidentiranje, izveštavanje i mere za poboljšanje Ukoliko izvršena aktivnost DD nije efikasna, postupak se ponavlja, predstavnik HACCP tima podnosi izveštaj vođi HACCP tima o efikasnosti izvršene DD i predlaže mere poboljšanja. Vođa HACCP tima analizira efikasnost i efektivnost DD i po potrebi preduzima mere poboljšanja Vođa HACCP tima analizira efikasnost i efektivnost DDD i po potrebi preduzima mere poboljšanja\n\nEvidencija DD Ček lista za monitoring glodara Ček lista za monitoring insekata Izveštaj o radu i mere za poboljšanje\n\nAktivnost - Odluka - Aktivnost/Odluka - Početak/Kraj O - primarna odgovornost, U - učesnik, I - informiše seu - ulazna dokumenta, i - izlazna dokumenta\n\n1.preduzetnik\n\n2. vođa HACCP tima\n\n3. predstavnik HACCP tima\n\n6.\n\n7. 8 .\n\n9.\n\n10.\n\n11.\n\n8. Zapisi Red. broj\n\nNaziv zapisa\n\nMedij čuvanja\n\nVreme čuvanja\n\nOdgovorno lice za arhiviranje dokumenata\n\nPlan DD\n\nPapir\n\n2 godine\n\nVođa HACCP tima\n\nEvidencija o izvršenoj DD\n\nPapir\n\n1 godina\n\nVođa HACCP tima\n\nIzveštaj o kontroli sprovedene aktivnosti DD\n\nPapir\n\n1 godina\n\nVođa HACCP tima\n\nPotvrda izvođača o izvršenju aktivnosti DD\n\nPapir\n\n1 godina\n\nVođa HACCP tima\n\n9.Obrasci Godišnji plan DD……………………………………………………………… OB-4 Evidencija o izvršenoj DD ................................................................................. OB-5\n\n10. Dokumentacija Ostala dokumenta podrške proceduri Lista dozvoljenih sredstava za održavanje higijene……………………………....OB-3 Ček lista monitoringa glodara…………………………………………………….OB-6 Ček lista monitoringa insekata……………………………………………………OB-7 Prilog Instrukcije za pripremu objekta, prostora pre izvođenja DD-a Prilog Uslovi koje je potrebno obezbediti pred izvođenje DD poslova, su sledeći: obaviti detaljno čišćenje celog objekta i smeće izneti iz objekta. pomeriti od zida, sirovine ,ambalažu i sve druge predmete koji bi onemogućili nesmetan prilaz izvođačima DD poslova ostaviti otvorene sve garderobne ormare, očišćene i iz njih izneti sve nepotrebne stvari popraviti vrata i zastakliti prozore koji su u kvaru da bi se u objektu stvorila minimalna hermetizacija obezbediti objekat da u njega niko ne ulazi najmanje 10h od početka posla kombinovane dezinsekcije Predstavnik HACCP tima je u obavezi da proveri sve gore navedene zahteve\n\n12. Izmene dokumenta br"
+  },
+  {
+    "code": "PR-04",
+    "kind": "PR",
+    "title": "Upravljanje neusaglašenostima",
+    "source_filename": "PR-4-upravljanja neusaglašenostima.doc",
+    "is_fixed": true,
+    "note": "",
+    "sort_order": 8,
+    "body": "Cilj primene Kontrola aktivnosti koje se sprovode u vezi sa neusaglašenim proizvodima/procesima, kako bi se sprečilo njihovo nenamerno ili neovlašćeno korišćenje/nastavljanje procesa Oblast primene Svi neusaglašeni procesi, proizvodi ako se utvrdi njihovo odstupanje od propisanih normi, odnosno ako se ustanovi izlazak procesa van zadatih granica. Primenjuje se u svim delovima preduzeća koji mogu da utiču na bezbednost proizvoda. Veza sa drugim dokumentima verifikacija nabavljenog proizvoda identifikacija i sledljivost čuvanje proizvoda Definicije Neusaglašenost – neispunjenje specificiranih zahteva/ugrožena bezbednost proizvoda/ Skraćenice Proizvod – predstavlja fizički materijalni produkt - hrana Potrebni resursi Osposobljeno osoblje Informacioni sistem Dokumentacija HACCP Odgovornosti Za kontrolu ove procedure odgovoran je Vođa HACCP tima Za postupak sa neusaglašenim proizvodima odgovorano je lice za preispitivanje neusaglašenosti Ostale odgovornosti i ovlašćenja definisana su dijagramom toka i opisom postupka Postupak Dijagram toka Red. broj\n\nRedovno odvijanje procesa i kontrola. Svi procesi se odvijaju i vode na propisani način uz odgovarajuću kontrolu parametara na ulazu i izlazu procesa. Svaki proces se odvija bez posebnih intervencija sve do trenutka kada se pojavi ili uoči bilo kakva neusaglašenost na proizvodima ili parametrima procesa. Neusaglašenost se po pravilu odmah prijavljuje neposrednom rukovodiocu.\n\nIzveštaj o neusaglašenom proizvodu\n\nUtvrđivanje neusaglašenog proizvoda Neusaglašen proizvod ili proces uočava radnik koji izvodi operaciju, ili lice koje nadgleda I kontroliše proces rada na osnovu vrednosti parametara koje prati i/ili kontroliše. Odmah po uočavanju neusaglašenosti svi proizvodi u periodu između dve kontrole parametra kod koga je uočeno odstupanje, ili postupka koji može da izazove ugrožavanje bezbednosti proizvoda, se izdvajaju u za to predviđen prostor. Radnik označava status neusaglašenog proizvoda oznakom “Neusaglašeno”, Za svaki proces kod koga je došlo do bilo kakvog odstupanja odgovorna osoba preduzima mere da proces vrati u propisane granice.\n\nPrijava neusaglašenosti Izveštaj\n\nIzveštaj o neusaglašenosti Izvršilac izrađuje izveštaj o neusaglašenosti proizvoda /opis uočenih odstupanja ili opis pojave koja može da ugrozi bezbednost proizvoda/ i dostavljaju ga timu za utvrđivanje uzroka i/ili definisanja postupka za identifikovane neusaglašenosti/proizvode.\n\nIzveštaj o neusaglašenosti\n\nAnaliza neusaglašenosti Po dobijanju izveštaja ovlašćeni pojedinac, tim za neusaglašene proizvode, analizira izveštaj i ostale raspoložive podatke i činjenice koje doprinose rešavanju neusaglašenosti i mogućim poboljšanjima.\n\nIzveštaj o neusaglašenosti\n\nAktivnost - Odluka - Aktivnost/Odluka - Početak/Kraj O - primarna odgovornost, U - učesnik, I - informiše seu - ulazna dokumenta, i - izlazna dokumenta\n\n1.preduzetnik 2.vođa HACCP tima 3.predstavnik HACCP tima\n\nOdluka o neusaglašenosti : I-dozvola za ostupanje/prenamenu II-škart Tim ili ovlašćeni pojedinac (u daljem tekstu “tim”) donosi jednu od sledećih odluka: -donodi odluku za odstupanje, odnosno promenu proizvoda -Proizvod je škart Tim za neusaglašene proizvode na izveštaju o neusaglašenosti, piše svoju odluku i dostavlja je nadležnom u HACCP tim, gde je neusaglašenost nastala i kakvi su zaključci. Ako je odluka da odstupanje nema uticaj na bezbednost proizvoda nastavlja se sa radom nakon otklanjanja uzroka neusaglašenosti\n\nPredlog odluke o neusaglašenosti\n\nIzveštavanje i arhiviranje Vlasnik informiše vođu HACCP tima, koji inicira sprovođenje korektivnih i/ili preventivnih mera /procena sprovođenja istih/ u cilju otklanjanja uzroka neusaglašenosti, poboljšanja i smanjenja troškova. Ukoliko se utvrdi neusaglašenost postupka, dokumenata ili procesa, vođa HACCP tima na osnovu prijave neusaglašenosti analizira značaj odstupanja i ukoliko proceni da je odstupanje značajno, daje nalog pojedincu/timu za definisanje i sprovođenje korektivnih/preventivnih mera. Dalji postupak se vodi po Proceduri za korektivne i preventivne mere. Vođa HACCP tima o svemu vodi registar neusaglašenosti i informiše vlasnika.\n\nOdluka o neusaglašenosti Izveštaj Korekcija/korektivne mere\n\nAktivnost - Odluka - Aktivnost/Odluka - Početak/Kraj O - primarna odgovornost, U - učesnik, I - informiše seu - ulazna dokumenta, i - izlazna dokumenta\n\n1.preduzetnik 2.vođa HACCP tima 3.predstavnik HACCP tima\n\nNeusaglašeni proizvodi\n\nOdluka o neusaglašenom proizvodu Ukoliko je odluka tima da su neusaglašeni proizvodi škart u saradnji sa HACCP timom organizuje uklanjanje škart proizvoda najkasnije 24h od dobijanja njegovog statusa\n\nOdluka o škartu /zapisnik/\n\nUklanjanje škarta Ova aktivnost se obavlja tako da se iz prostorija za proizvodnju fizički u potpunosti uklanja celokupna količina škatr proizvoda /odnos na deponiju,/ O ovom aktivnostima se obavezno pravi izveštaj. Poslove uklanjanja škart proizvoda nadgleda ili sprovodi HACCP tim\n\nOdluka o škartu Izveštaj o škartu\n\nFinansijski izveštaj o neusaglašenosti komercijalista/knjigovođa evidentira i obrađuje sve troškove vezane za neusaglašen proizvod ili proces i o tome obaveštava rukovodstvo preko odgovarajućih izveštaja.\n\nizveštaj o škartu Finansijski izveštaj o troškovima neusaglašenosti Procedura obrade troškova\n\nAnaliza i informisanje Nakon konstatovanja neusaglašenosti i preduzimanja korektivnih mera dostavlja se vođi HACCP tima kopiju izveštaja o neusaglašenosti koju isti evidentira u registru neusaglašenosti, prati i analizira i u slučaju da se ista neusaglašenost ponavlja ili da preduzete korektivne mere nisu dale zadovoljavajuće rezultate, mora se preispitati ceo HACCP plan I pokrenuti aktivnosti za prevazilaženje uzroka neusaglašenosti /nove korektivne mere\n\nKorektivne mere Izveštaj\n\nAktivnost - Odluka - Aktivnost/Odluka - Početak/Kraj O - primarna odgovornost, U - učesnik, I - informiše seu - ulazna dokumenta, i - izlazna dokumenta\n\n1.preduzetnik 2.vođa HACCP tima 3.predstavnik HACCP tima\n\nPostupak za neusaglašenosti Korak\n\nAkcija\n\nIdentifikacija problema\n\nPregled rezultata monitoringa i evidencije\n\nPrekid procesa\n\nZaustavljanje proizvodnje dok se problem ne reši\n\nKorektivne mere\n\nUklanjanje kontaminiranih proizvoda, ponovna obrada ili uništenje\n\nRevizija\n\nProvera uzroka problema i ažuriranje HACCP plana ako je potrebno\n\nZapisi Red. broj\n\nNaziv zapisa\n\nMedij čuvanja\n\nVreme čuvanja\n\nOdgovorno lice za arhiviranje dokumenata\n\nIzveštaj o neusaglašenosti proizvoda\n\nPapir\n\n2 godine\n\nVođa HACCP tima\n\nIzveštaj o škartu/zapisnik/\n\nPapir\n\n2 godine\n\nVođa HACCP tima\n\nFinansijski izveštaj o troškovima neusaglašenosti\n\nPapir\n\n2 godine\n\nVođa HACCP tima\n\nObrazac pracenje temperature frizidera\n\nPapir\n\n2 godine\n\nVođa HACCP tima\n\n9. Obrasci - Registar neusaglašenosti korektivnih mera…………………………………….OB- 8 - Obrazac pracenja temperature rashladnog uredjaja CCP1……………...............OB-10\n\n10. Izmene dokumenta br"
+  },
+  {
+    "code": "PR-05",
+    "kind": "PR",
+    "title": "Korektivne i preventivne mere",
+    "source_filename": "PR-5-korektivne i preventivne mere.doc",
+    "is_fixed": true,
+    "note": "",
+    "sort_order": 9,
+    "body": "Cilj primene Definiše aktivnosti sprovođenja korektivnih i preventivnih mera u organizaciji u cilju prevencije pojavljivanja ili sprečavanja ponovnog pojavljivanja neusaglašenosti proizvoda, usluga ili sistema uz vođenje odgovarajućih zapisa. Oblast primene Primenjuje se počev od otkrivanja – prijavljivanja konkretnog problema u vezi sa bezbednošću /kvalitetom proizvoda ili procesa preko planiranja i sprovođenja odgovarajućih aktivnosti u cilju potpunog sprečavanja ili svođenja na minimum mogućnost ponovnog pojavljivanja problema do konačne ocene efekata sprovedenih mera. Veza sa drugim dokumentima Preispitivanje od strane rukovodstva Praćenje i merenje Interne provere Upravljanje neusaglašenim proizvodima Analiza podataka Poboljšanje Definicije Preventivna mera: aktivnosti preduzete radi otklanjanja uzroka potencijalne neusaglašenosti proizvoda/usluge, sistema, sa ciljem da se spreči njihova pojava, Korektivna mera: aktivnosti preduzete radi otklanjanja uzroka otkrivene neusaglašenosti, proizvoda/usluga, sistema, sa ciljem da se spreči njihova ponovna pojava Korekcija: mera koja upućuje na popravku , prepravku ili podešavanje i odnosi se na otklanjanje neusaglašenosti koje postoje Neusaglašenost: neispunjenje specifiranih zahteva Potrebni resursi: Obučeno osoblje Dokumenti sistema HACCP-a Zakonski propisi Odgovornosti Za uspostavljanje i primenu ove procedure odgovoran je vođa HACCP tima Za sprovođenje ove procedure odgovorni su svi kojima je potrebno primeniti korektivne i preventivne mere Postupak Dijagram toka- korektivne mere Red. broj\n\nIdentifikovanje neusaglašenosti i određivanje značaja Identifikaciju neusaglašenosti ( nastale i potencijalne ) vrši se preko: Žalbi kupaca Izveštaja o neusaglašenim proizvodima Direktnom kontrolom sistema Istraživanje uzroka nastale neusaglašenosti nakon informacije o pojavi neusaglašenosti proizvoda/usluga, sistema, vođa HACCP tima razmatra značaj nastale neusaglašenosti. Ukoliko proceni da je značaj neusaglašenosti veliki i da postoje potreba za preduzimanje korektivnih mera angažuje HACCP tim koji ima zadatak da istraži uzrok nastale neusaglašenosti i da predlog za korektivne mere.\n\nPrijave neusaglašenosti Žalba Zapis o utvrđenoj neusaglašenosti\n\nAnaliza uzroka HACCP tim analizira uzroke pojave neusaglašenosti i utvrđuje mere kojima treba delovati na uzrok kako se isti ne bi ponovo javljao u daljem radu\n\nIzveštaj o neusaglašenosti Nalog-izveštaj o analizi uzroka\n\nUtvrđen uzrok HACCP tim utvrđuje uzrok i definiše mere za njegovo otklanjanje\n\nIzdavanje naloga za sprovođenje mera Na osnovu dobijenih podataka od tima o analizi neusaglašenosti vođa HACCP tima izdaje nalog za sprovođenje korektivnih mera.\n\nAnaliza i pred. mere Nalog za sprovođenje mera Registar neusaglašenosti i korek.mera\n\nPraćenje i ocena efekta sprovedenih mera Nakon sprovođenja korektivnih i preventivnih mera HACCP tim analizira rezultate sprovedenih mera i o istom pravi izveštaj o efikasnosti i efektivnosti sprovedenih korektivnih i preventivnih aktivnosti /verifikacija/.Ako mere nisu dale očekivane rezultate,postupak se ponavlja,izdaju se nove mere za prevazilaženje neusaglašenosti.\n\nNalog za sprovođenje mera Registar neusaglašenosti i korek.mera Stručno mišljenje o s provedenim merama\n\nIzveštavanje o sprovedenoj meri Nakon dobijenog izveštaja o verifikaciji vođa HACCP tima pravi izveštaj o sprovedenim merama i sa istim upoznaje vlasnika.\n\nStručno mišljenje Izveštaj o sprovedenim merama\n\nAktivnost - Odluka - Aktivnost/Odluka - Početak/Kraj O - primarna odgovornost, U - učesnik, I - informiše se u - ulazna dokumenta, i - izlazna dokumenta\n\nPR-preduzetnik\n\n1. vođa HACCP tima 2.HACCP tim\n\nDijagram toka- preventivne mere Red. broj\n\nIdentifikovanje potencijalnih opasnosti i određivanje značaja Identifikacija potencijalne neusaglašenosti vrši se preko: Interne provere Provere od strane rukovodstva Direktnom kontrolom sistema /nadzor I analiza/ Analizom podataka I direktnim uvidom na licu mesta /praćenje I kontrola rada/ HACCP tim dolazi do podataka o slabim mestima /potencijalna opasnost/ ili mestima u kojim je moguće poboljšanje I unapređenje, sistema I razmatra značaj i uticaj koji isti može imati na bezbednost proizvoda. Ukoliko proceni da je značaj veliki i da postoje potreba za preduzimanje preventivnih mera, HACCP tim ima zadatak da istraži uzrok i da predlog za preventivne mere, odnosno predloži mere za poboljšanje sistema.\n\nAnaliza podataka\n\nAnaliza uzroka HACCP tim analizira uzroke pojave i utvrđuje predlog mera kojima treba delovati\n\nAnaliza podataka Izveštaj o analizi uzroka/mere poboljšanja\n\nIzdavanje naloga za sprovođenje mera Na osnovu dobijenih podataka vođa HACCP tima izdaje nalog za sprovođenje preventivnih mera.\n\nIzveštaj o analizi uzroka/mere poboljšanja Nalog za sprovođenje mera Povlačenje proizvoda\n\nPraćenje i ocena efekta sprovedenih mera Nakon sprovođenja preventivnih mera HACCP tim analizira rezultate sprovedenih mera i o istom pravi izveštaj o efikasnosti i efektivnosti sprovedenih preventivnih aktivnosti /verifikacija/\n\nRezultati i merenja Stručno mišljenje o s provedenim merama\n\nIzveštavanje o sprovedenoj meri Nakon dobijenog izveštaja o verifikaciji vođa HACCP tima pravi izveštaj o sprovedenim merama i sa istim upoznaje vlasnikaa.\n\nIzveštaj o sprovedenim merama\n\nAktivnost - Odluka - Aktivnost/Odluka - Početak/Kraj O - primarna odgovornost, U - učesnik, I - informiše se u - ulazna dokumenta, i - izlazna dokumenta\n\nPR- preduzetnik\n\n1. vođa HACCP tima 2.HACCP tim\n\nZapisi Red. broj\n\nNaziv zapisa\n\nMedij čuvanja\n\nVreme čuvanja\n\nOdgovorno lice\n\nNalog za sprovođenje korektivnih i preventivnih mera\n\npapir\n\n2 godine\n\nVođa HACCP tima\n\nRegistar neusaglašenosti i korektivnih mera\n\npapir\n\nOdržava se\n\nVođa HACCP tima\n\nIzveštaj o sprovedenim merama\n\npapir\n\n2 godine\n\nVođa HACCP tima\n\nAnaliza uzroka\n\npapir\n\n2 godine\n\nVođa HACCP tima\n\nPovlačenje proizvoda\n\npapir\n\n2 godine\n\nVođa HACCP tima\n\n9. Obrasci Registar neusaglašenosti i korektivnih/ preventivnih mera...........................................OB-8 Povlačenje proizvoda......................................................................................................OB-9 Nalog za sprovođenje korektivnih i preventivnih mera..................................................OB-1\n\n10. Izmene dokumenta br"
+  },
+  {
+    "code": "UP-01",
+    "kind": "UP",
+    "title": "Prijem i skladištenje",
+    "source_filename": "UP-1-prijem i skladistenje.doc",
+    "is_fixed": true,
+    "note": "",
+    "sort_order": 10,
+    "body": "Cilj primene Cilj primene je da definiše postupak rada prilikom prijema sirovina i skladištenja, kako bi se optimalno sačuvali do procesa proizvodnje. Oblast primene Uputstvo se primenjuje za postupke prijema svih sirovina i ambalaže, uključujući sva dokumenta i obrasce od prijema do proizvodnje i skladištenja. Definicije Nema Odgovornosti Za kontrolu i preispitivanje uputstva, odgovoran je zaposleni na prijemu Za pridržavanje ovog uputstva, odgovoran je vođa tima Postupak Prijem sirovina vrši se određenom dinamikom, koja je unapred isplanirana prema planu proizvodnje . Za prijem svih prehrambenih proizvoda odgovorno je lice koje kontroliše ispravnost sirovine (vizuelno) pri prijemu. - Prijem prehrambenih proizvoda U zavisnosti od osobina i roka upotrebe proizvodi se skladište u frižideru. Uslove pod kojima će se skladištiti neka sirovina određuju sami proizvođači robe (deklaracija) a za poštovanje istih zadužen je zaposleni. Obavezno treba voditi računa o roku trajanja. Uslovi čuvanja podležu stalnoj kontroli, sa posebnim naglaskom o kontroli vremena lagerovanja koje ne može biti duže od propisanog vremena trajanja konkretne sirovine (deklaracija). Sirovine koje se lageruju i čuvaju u frižiderima zahtevaju poseban temperaturni režim i on za sve iznosi od 0 – 80C . Upotreba sirovina se vrši po principu „FI-FO“ /first in – first out/ odnosno po mehanizmu da roba koja je prva ušla mora i prva da izađe iz njega, kako bi se obezbedila pravilna manipulacija i izbeglo njihovo zadržavanje u dužem periodu nego što je to predviđeno. Prema HACCP-u: Prijem robe je CP - Kontrolna tačka U slučaju da se pri prijemu utvrdi neispravnost proizvoda ili prateće dokumentacije, obustavlja se prijem i o tome obaveštava vođa HACCP tima koji o tome donosi odluku u daljem postupku. O ovome se vodi zapisnik kao izveštaj HACCP tima i isti se razmatra pri oceni dobavljača. U slučaju da su pređene kritične granice, zaposleni neusaglašenost odmah prijavljuje vođi tima a sa proizvodima se mora postupati u skladu sa Procedurom upravljanja neusaglašenosti (PR-04) i Procedurom za korektivne i preventivne mere (PR-05). Vođa tima je dužan da upozna izvršioce sa ovim uputstvom i da obezbedi raspoloživost istog na mestu izvršenja Zapisi Red. broj\n\nNaziv zapisa\n\nMedij čuvanja\n\nVreme čuvanja\n\nOdgovorno lice za arhiviranje dokumenata\n\nZapis o higijeni prostora\n\nPapir\n\n2 godine\n\nZaposleni\n\n7.Obrasci Ček lista higijene radnog prostora............................................................ OB-11\n\n8. Izmene dokumenta br"
+  },
+  {
+    "code": "UP-02",
+    "kind": "UP",
+    "title": "Lična higijena",
+    "source_filename": "UP-2-lična higijena.doc",
+    "is_fixed": true,
+    "note": "",
+    "sort_order": 11,
+    "body": "Cilj primene Ovim uputstvom se definišu pravila ponašanja, odevanja i održavanja lične higijene zaposlenih u cilju sprečavanja kontaminacije proizvoda. Područje primene Uputstvo se odnosi na zaposlene u proizvodnji. Definicije Nema Odgovornosti Za preispitivanje ovog uputstva i njegovu primenu u praksi, odgovoran je vođa HACCP tima. Za obavljanje direktnih aktivnosti, odgovorni su izvršioci Postupak Održavanje lične higijene Lična higijena je skup svih postupaka i mera koje se preduzimaju u cilju održavanja čistoće tela, odeće, obuće i predmeta za ličnu upotrebu. Osnovna znanja o higijensko-sanitarnoj zaštiti mora da zna svaki radnik koji radi. Svaki radnik je dužan da održava ličnu higijenu. Održavanje čistoće tela sastoji se od pranja i kupanja svih delova tela, podrezivanje i održavanje noktiju, podšišavanja, šišanja i brijanja, pranja zuba i usne šupljine i higijena čula mirisa, vida i sluha. Radnici moraju da budu uredno ošišani, čiste i uredne kose. Higijena ruku je vrlo važna u održavanju ispravnosti životnih namirnica i sprečavanju prenošenja crevnih zaraznih bolesti “bolest prljavih ruku”. Nečistoće sa prstiju su najopasnije naročito prljavština ispod noktiju, zato je važno da radnik ruke pere: - pre i posle svakog obroka - pre početka rada - posle svake upotrebe WC-a - posle dodira prljavih predmeta - pre prelaska sa jednog posla na drugi, ukoliko ovaj prvi može da na bilo koji način zagadi ruke - posle rada. Ruke obavezno prati pod mlazom tekuće vode sa upotrebom sapuna . Posle pranja ruke obavezno dezinfikovati blagim dezinfekcionim sredstvom i sušiti fenomatom ili papirnatim ubrusom. Lica koja rade u proizvodnji prilikom rada moraju nositi radnu odeću koja uvek mora biti čista i uredna. Zaposleni su odgovorni za održavanje čistoće radne uniforme i obuće. Zamena radne odeće se vrši jednom nedeljno/po potrebi i češće. Zabranjeno je korišćenje radne uniforme i obuće u druge svrhe i nesme se upotrebljavati van radnog mesta, već po završetku rada se ista uredno složi i ostavi u garderobni orman. Pušenje je zabranjeno u prodaji. Dozvoljena mesta za pušenje su adekvatno označena natpisima. Zdravstveni status i ponašanje u slučaju bolesti i povrede Vođa HACCP tima upućuje zaposlene na sanitarni pregled u skladu sa važećim normativnim aktima. Vođa HACCP tima vodi evidenciju o sanitarnoj kontroli i čuva sanitarne knjižice zaposlenih .U slučaju pozitivnog nalaza epidemiološke službe, Vođa HACCP tima vraća radnika sa posla do izlečenja (koje se potvrđuje nalazom lekara). U slučaju pojave posekotina, opekotina i sličnih povreda, povređeno mesto mora biti uredno zaštićeno (upotreba rukavica, pokrivaka i dr) Zaposleni su obavezni da informišu Vođu HACCP tima o uočenim promenama: Infekcijske prirode (upala grla, kijanje, kašalj, curenje nosa, povišenje telesne tempereture); otvorene promene na koži ruku; više puta ponovljena diareja (proliv) ili povraćanje prethodnog ili tekućeg dana. Zapisi Red. broj\n\nNaziv zapisa\n\nMedij čuvanja\n\nVreme čuvanja\n\nOdgovorno lice za arhiviranje dokumenata\n\nEvidencija o sanitarnoj kontroli radnika\n\npapir\n\nAžurira se\n\nVođa HACCP tima\n\nObrasci- Izjava posetilaca……………………………………………………………… OB-13 Izmene dokumenta br"
+  },
+  {
+    "code": "UP-03",
+    "kind": "UP",
+    "title": "Čišćenje i održavanje higijene",
+    "source_filename": "UP-3-čišćenje i održavanje higijene.doc",
+    "is_fixed": true,
+    "note": "",
+    "sort_order": 12,
+    "body": "Cilj primene Cilj uputstva je da definiše postupak rada održavanja higijene objekta i opreme od prijema sirovina, skladištenja, proizvodnje i prodaje kupcima.\n\n2. Oblast primene Uputstvo se odnosi na sve zaposlene i procese u proizvodnji.\n\n3. Definicije Nema\n\n4. Odgovornosti Za preispitivanje ovog uputstva i njegovu primenu u praksi, odgovornost ima vođa HACCP tima Za obavljanje direktnih aktivnosti, odgovorni su izvršioci\n\n5. Postupak\n\n5.1 Održavanje higijene opreme Sva oprema koja je u neposrednom kontaktu sa hranom se svakodnevno čisti po završetku posla. Jedanput nedeljno se rashladna komora/ frižider detaljno čisti (pere) i nakon toga dezinfikuje. Svakog meseca se organizuje generalno čišćenje celokupne opreme kada se ista u potpunosti čisti, pere i dezinfikuje. Sredstva za održavanje higijene koja se u ovim prilikama koriste data su u listi dozvoljenih sredstava za održavanje higijene i nije dozvoljeno koristiti druga bez odobrenja vođe HACCP-tima. Pribor koji se koristi za održavanje higijene je strogo namenski (četke, krpe, kofe….) Pomoćni pribor koji se koristi za održavanje higijene opreme (sunđeri, truleks krpe, abrazivne krpe i sl.) se po završetku čišćenja mora u potpunosti oprati i odložiti u namenske prostore potopljene u blagi rastvor dezinfekcionog sredstva. Upotreba pomoćnog pribora se ograničava na nedelju dana, nakon čega se zamenjuje novim kompletom.\n\n5.3 Održavanje higijene sanitarnih prostorija Koristie se toaleti u objektima\n\n6. Zapisi Red. broj\n\nNaziv zapisa\n\nMedij čuvanja\n\nVreme čuvanja\n\nOdgovorno lice za arhiviranje dokumenata\n\nČek lista higijene prodajnog prostora\n\nPapir\n\n1 mesec\n\nVođa HACCP -tima\n\n7.Obrasci Ček lista higijene radnog prostora............................................................ OB-11 8.Prilozi Nema 9.Izmene dokumenta br"
+  },
+  {
+    "code": "UP-04",
+    "kind": "UP",
+    "title": "Identifikacija i sledljivost",
+    "source_filename": "UP-4-identifikacija i sledljivost.doc",
+    "is_fixed": true,
+    "note": "",
+    "sort_order": 13,
+    "body": "1.Cilj primene Cilj ovog uputstva je da se obezbedi upravljanje postupkom identifikacije, kako bi se na nedvosmislen način omogućilo praćenje svih proizvoda i procesa a u slučajevima kada postoji zahtev ili izražena potreba za sledljivošću, obezbedi upravljanje postupkom sledljivosti, kako bi se utvrdio uzrok neusaglašenosti ili odstupanja.\n\n2. Oblast primene Uputstvo se primenjuje u svim procesima rada i po potrebi obezbeđuju ulaženje u trag.\n\n3. Definicije Sledljivost – mogućnost utvrđivanja podataka o poreklu, dobavljacu i drugim bitnim podacima za bezbednost proizvoda.\n\n4. Odgovornosti Za kontrolu ovog uputstva, odgovoran je vođa HACCP tima Za pridržavanje ovog uputstva u praksi, odgovorni su direktni izvršioci\n\n5. Postupak Opis aktivnosti Proizvodi i procesi se identifikuju odgovarajućim deklaracijama, nalepnicama, identifikacionim kartonima na ambalaži i/ili kroz zapise, a koji su utvrđeni kroz ostale procedure, uputstva… Osnovni podaci za sledljivost su naziv proizvoda i datum upotrebljivosti proizvoda/ karakteristike procesa merljive kroz zapise koji ih prate. Postupak prijema proizvoda (ulazna kontrola); način i postupci skladištenja, sve do izlaska proizvoda na police radnje, opisan je radnim uputstvima, HACCP planovima i pratećim dokumentima kao potvrdom kontrole, merenja i evidentiranja svih potrebnih veličina i parametara od značaja za proces, tako da se u slučaju potrebe (reklamacije, neusaglašenosti i sl.) može idući korak po korak unazad doći do uzroka (mesta) nastanka neusaglašenosti. Proizvod koji je praćena validnom dokumentacijom definisanom u specifikaciji (otpremnicom, izveštajem laboratorijske analize i proizvođačkom specifikacijom) može da uđe u proizvodnju. naziv proizvoda naziv dobavljača datum prijema broj otpremnice primljenu količinu rok trajanja /upotrebljivo do Dakle praćenjem datuma proizvodnje koji je utisnut na ambalažu naziva proizvoda kao i dokumenta koja idu uz isporuku i informacija koji svaki od njih nosi može se u suprotnom smeru doći do početne sirovine, odnosno iskontrolisati kompletan proces, ili identifikovati mesto, uzrok nastanka neusaglašenosti. Pracenjem radnog naloga u proizvodnji u kojem se vodi evidencija ugradjenih serija sirovina u gotov proizvod prati se sledjivost. Zapisi Red. broj\n\nNaziv zapisa\n\nMedij čuvanja\n\nVreme čuvanja\n\nOdgovorno lice za arhiviranje dokumenata\n\nNalog za utvrđivanje sledljivosti\n\nPapir\n\n1 godina\n\nVođa HACCP tima\n\nIzveštaj o utvrđenoj sledljivosti\n\nPapir\n\n1 godina\n\nVođa HACCP tima\n\n7.Obrasci Obrazac identifikacije i sledljivosti………………………………………………OB-14\n\n8. Izmene dokumenta br"
+  },
+  {
+    "code": "UP-05",
+    "kind": "UP",
+    "title": "Opoziv proizvoda",
+    "source_filename": "UP-5-opoziv proizvoda.doc",
+    "is_fixed": true,
+    "note": "",
+    "sort_order": 14,
+    "body": "Cilj primene Cilj primene ovog uputsva je da svaki proizvod koji nije bezbedan za kupca ili nije u skladu sa zakonskim zahtevima se povuče sa tržišta što je moguće brže. Oblast primene Sve situacije u kojima je vlasnik objavio opoziv proizvoda. Definicije Opoziv – povlačenje proizvoda sa tržišta Odgovornosti Za kontrolu ovog uputstva odgovoran je vođa HACCP tima Za sprovođenje ovog uputstva u praksi, odgovoran je vođa HACCP tima Postupak Opis aktivnosti Tabela prikazuje zadatke i odgovornosti. Aktivnost\n\nOdgovornost\n\nUtvrđivanje potrebe za opozivom\n\nVlasnik Vođa HACCP tima\n\nObjava opoziva\n\nVlasnik\n\nUpravljanje detaljnim aktivnostima opoziva za sve vreme njegovog trajanja\n\nVođa HACCP tima\n\nObaveštavanje javnih zdravstvenih institucija u slučaju postojanja osnovanog rizika za narušavanje zdravlja korisnika proizvoda\n\nVođa HACCP tima\n\nČuvanje potpunih zapisa o svim detaljima za vreme krize: Odluke Izveštaji Zapisnici\n\nVođa HACCP tima\n\nIdentifikovanje proizvodnih serija ili količina neispravnih proizvoda koje treba opozvati\n\nVođa HACCP tima\n\nObaveštavanje svih kupaca koji su možda primili neispravan proizvod\n\nVođa HACCP tima\n\nUtvrđivanje da li je potrebna eksterna tehnička pomoć i angažovanje spoljnih saradnika na rešavanju krize\n\nVlasnik Vođa HACCP tima\n\nOdluka da li treba informisati javnost\n\nVlasnik\n\nInformisanje medija i komunikacija sa njima\n\nVlasnik\n\nSprovođenje priprema za transport i prijem u izolovano skladištenje proizvoda vraćenih sa tržišta\n\nVođa HACCP tima\n\nOrganizovanje ispitivanja vraćenih proizvoda\n\nVođa HACCP tima\n\nOdluka o završetku krize\n\nVlasnik\n\nOdluka o odstranjivanju/uništenju proizvoda\n\nVlasnik Vođa HACCP tima\n\nOPŠTA PRAVILA ZA VREME OPOZIVA PROIZVODA: Zabeležiti sve preduzete aktivnosti. Obezbediti da se ne napravi nijedna greška koja bi dovela do mešanja opozvanih proizvoda sa drugim. Ne uništavati nijedan proizvod pre ispitivanja. Ostaviti testirane uzorke. Niko osim vlasnika i vođe HACCP tima ne sme da razgovara sa ma kojom osobom izvan firme o opozivu ili njegovim okolnostima. Što se pre preduzme efektivna akcija veća je verovatnoća da situacija bude pod kontrolom. Svako čekanje u preduzimanju efektivnih akcija će verovatno rezultirati u mnogo goroj situaciji. Zapisi Red. broj\n\nNaziv zapisa\n\nMedij čuvanja\n\nVreme čuvanja\n\nOdgovorno lice za arhiviranje dokumenata\n\nZapisnici, izjave, analize, izveštaj o opozivu proizvoda sa svim prilozima\n\nPapir\n\n3 godine\n\nVođa HACCP tima\n\nObrasci Povlacenje proizvoda……………………OB-9 Prilozi Nema 9.Izmene dokumenata br"
+  },
+  {
+    "code": "UP-06",
+    "kind": "UP",
+    "title": "Kontrola merne opreme",
+    "source_filename": "UP-06-za kontrolu merne opreme.doc",
+    "is_fixed": true,
+    "note": "",
+    "sort_order": 15,
+    "body": "Cilj primene Ovim uputstvom definiše se način kontrole merne opreme u cilju održavanja i provere njene funkcionalnosti i tačnosti. Oblast primene Oblast primene ovog uputstva je u proizvodnji gde se koristi merna oprema u smislu merenja i praćenja propisanih parametara procesa. Definicije Propisi - zakoni, standardi, pravilnici, uredbe i druga akta Merila,merna oprema – instrumenti kojima se mere zadane vrednosti-parametri Odgovornosti Za pridržavanje ovog uputstva u praksi i kontrolu istog odgovrani su izvršioci na mestima merenja Za primenu propisa koji regulišu ovu oblast u praksi odgovoran je vođa HACCP tima Za preispitivanje i kontrolu ovog uputstva odgovoran je vođa HACCP tima Postupak Potrebna oprema: indikatori – merni instrumenti na radnoj opremi kontrolna merila – merni instrumenti kojima se kontroliše rad opreme /radni prenosni termometar kojim se na licu mesta proverava tačnost očitanih rezultata sa indikatora ili u slučaju da isti ne postoje na opremi predstavljaju primarni merni instrument. Jednim kontrolnim merilom se mogu kontrolisati više punktova na jednoj lokaciji/ radni etalon – etalonirano merilo kojim se kontroliše rad i preciznost/tačnost kontrolnih merila i indikatora /prenosni kvalitetni etalonirani merni instrument ili instrument(merilo) koje je provereno drugim merilom više klase tačnosti kojim se vrši verifikacija rada indikatora i kontrolnih merila . Radni etalon se koristi na svim lokacijama i ne sme se koristiti za druge namene/ Opis aktivnosti: Vođa HACCP tima obezbeđuje /nabavlja/ potreban broj merila po vrsti i kvalitetu i vrši njihovo razmeštanje gde će se merenja i kontrole sprovoditi. Dužnost vođe tima je da obuči i uputi osoblje, koje će rukovati mernom opremom, da istu pravilno koristi. Shodno uputstvu iz HACCP plana izvršioci će meriti i upisivati u za to predviđenom obrascu OB-36 Vođa HACCP tima će jedanput u toku meseca /po potrebi i češće/ vršiti verifikaciju ispravnosti drugih merila radnim etalonom Očitavanje merenog parametra sa indikatora se vrši direktno sa displeja uređaja Očitavanje sa kontrolnog merila se vrši tako što se isto postavi u prostor koji je pod temperaturnim režimom u prosečnom položaju /mesto za koje se očekuje da ima prosečno održavanu temperaturu, bez dodira sa proizvodima i pakovanjima koji se u njemu nalaze, Kontrola vaga se vrši tako što se kontrolni teg postavi (izmeri) na za to predviđenom tasu. Rukovanje radnim etalonom je u potpunosti isto kao i sa “kontrolnim merilom” Napomena: Ukoliko je potrebno češće vršiti kontrolu na pojedinim mestima, to će se vršiti po dinamici i vremenu koju odredi HACCP tim. U slučaju da se kontrolnim termometrom utvrdi odstupanje veće od 5% /razlika između vrednosti sa radnog etalona i kontrolnog termometra/ pokreće se procedura korektivnih mera. Zapisi Red. broj\n\nNaziv zapisa\n\nMedij čuvanja\n\nVreme čuvanja\n\nOdgovorno lice za arhiviranje dokumenata\n\nPraćenje i kontrola mernih instrumenata\n\npapir\n\n1 godina\n\nVođa HACCP tima\n\nObrasci Praćenje i kontrola mernih instrumenata......................................OB- 20 Spisak opreme...............................................................................OB-21 Izmene dokumenata br"
+  },
+  {
+    "code": "UP-07",
+    "kind": "UP",
+    "title": "Izrada i upravljanje dokumentima",
+    "source_filename": "UP-07- za izradu i upravljanje doc.doc",
+    "is_fixed": true,
+    "note": "",
+    "sort_order": 16,
+    "body": "Cilj primene Cilj ovog uputstva je da definiše načine izrade dokumenata sa jedinstvenim i racionalnim sadržajem i formom izrade i njihovim upravljanjem. Područje primene Ovo uputstvo se obavezno primenjuje za izradu svih dokumenata i njihovim upravljanjem. Definicije Dokument: informacija i njen noseći medijum Napomena: medijum može biti papir, magnetni, elektronski ili optički disk, fotografija i dr. Procedura : dokumentovani način obavljanja aktivnosti ili procesa ili dela procesa, kojim se definiše hronološki redosled obavljanja određenih aktivnosti, odnosno ŠTA; KO; KADA i GDE treba da uradi Uputstvo: dokument kojim se detaljno utvrđuje način obavljanja posla odnosno KAKO treba da se uradi da bi se ispunili unapred definisani zahtevi kvaliteta. Obrazac: formular koji se koristi da se zapiše informacija .Obrazac postaje zapis kada se popuni podacima. Odgovornosti za kontrolu i preispitivanje ovog uputstva odgovornost ima vođa HACCP tima za primenu u praksi odgovornost imaju svi koji izrađuju i pripremaju dokumente Postupak: Opis aktivnosti Dokumenti se rade u standardizovanoj formi definisanoj ovim uputstvom. Svaki dokument ima naslovnu stranu sa logotipom firme i svim potrebnim podacima za efikasnu kontrolu i upravljanje dokumentima. Ovo zaglavlje je prisutno na početku svake stranice svih dokumenata. Na dnu prve strane svi dokumenti, osim obrazaca, imaju jedinstvenu tabelu sa sledećim podacima: DATUM PRIMENE\n\nIZRADIO\n\nPOTPIS\n\nPoslovnik: Na drugoj strani se nalazi predgovor sa kratkim istorijatom firme. Nakon toga sledi sadržaj poslovnika Sledi uopšteni podaci o poslovniku Politika bezbednosti proizvoda Razrada po tačkama HACCP sistema /codex alimentarius/ Na kraju su dati prilozi koji prate poslovnik Procedura: Svaka procedura ima standardizovane tačke koje definišu njenu primenu i formu: Cilj primene Oblast primene Veza sa drugim dokumentima Definicije Potrebni resursi Odgovornosti Postupak\n\n7.1 dijagram toka /opis aktivnosti/ Svaka procedura po pravilu sadrži dijagram toka koji se radi na obrascu za izradu dijagrama toka. Dijagram toka se izrađuje na priloženom obrascu na sledeći način: Red. broj\n\nUpisati redni broj aktivnosti, Napraviti dijagram toka koristeći sledeće simbole: Početak i kraj procesa Aktivnost Odluka Pravac toka aktivnosti Zapisi Red. broj\n\nNaziv zapisa\n\nMedij čuvanja\n\nVreme čuvanja\n\nOdgovorno lice za arhiviranje dokumenata\n\nPrilozi – dokumentacija Izmene dokumenata br\n\nIzradio:\n\nOdobrio:\n\nDatum primene\n\nIme :\n\nFunkcija:\n\nPotpis:\n\nUputstvo: Svako uputstvo ima standardizovane tačke koje definišu njenu primenu i formu: Cilj primene Oblast primene Definicije Odgovornosti Postupak Zapisi Red. broj\n\nNaziv zapisa\n\nMedij čuvanja\n\nVreme čuvanja\n\nOdgovorno lice za arhiviranje dokumenata\n\nPrilozi – dokumentacija Izmene dokumenata br\n\nIzradio:\n\nKontrolisao:\n\nOdobrio:\n\nDatum primene\n\nIme :\n\nFunkcija:\n\nPotpis:\n\nObrasci: Obrasci se rade u slobodnoj formi /tekst, tabela, dijagram…/ u zavisnosti od potreba za koje se primenjuju. Obrasci su dokumenta u kojima je konstatovano izvršenje određene aktivnosti i tom prilikom on prelazi u zapis.Svi zapisi moraju da imaju datum kada su nastali i potpis odgovornog lica. Izgled obrasca je definisan samo gornjim zaglavljem koje je indetično za sva dokumenta a dodelom šifre po jedinstvenom načinu šifriranja sa oznakom OB postaje zvaničan dokumenat Autor, kontrola i odgovornosti za dokumenta su definisani kroz matricu odgovornosti članovaHACCP tima/ prilog 5 u poslovniku/. Izgled i sadržaj obrasca je slobodna forma u zavisnosti od namene za koju će se koristiti (tabela, plan, tekstualni podaci,...) i njihova zvanična verzija se nalazi u originalnoj verziji u arhivi kod vođe HACCP tima HACCP plan Opis proizvoda: Osnovne sirovine za proizvodnju\n\nPomoćne sirovine i dodaci\n\nSastav proizvoda\n\nGeografsko poreklo sirovine\n\nIsporučilac sirovine\n\nOpis gotovog proizvoda\n\nPrehrambeni aditivi, sastojci, sredstva za preradu\n\nTransport\n\nPlanirana upotreba\n\nCiljni potrošači\n\nDijagram toka: Red. br.\n\nRadna lista za analizu opasnosti: Aktivnost\n\nProizvod\n\nMoguća opasnost\n\nZnačajni potencijalni rizik\n\nPreventivne mere\n\nCCP CP\n\nB-biološka H- hemijska M-mehanička\n\nHACCP plan: (1) Kritična kontrolna tačka CCP\n\n(2) Opasnost\n\n(3) Kritične granice\n\nPraćenje\n\n(8) Korektivne mere\n\n(9) Zapisi\n\n(10) Verifikacija\n\nproizvod\n\n(4) Šta\n\n(5) Kako\n\n(6) Učestalost\n\n(7) Ko\n\nPrilozi Izmene Šifriranje dokumenata Sva dokumenta se jedinstveno šifriraju na osnovu instrukcija za šifriranje: INSTRUKCIJE ZA ŠIFRIRANJE DOKUMENATA Sva dokumenta nose formiranu šifru u gornjem desnom uglu zaglavlja. Dokumenta se šifriraju na sledeći način: XX –XX Kodna oznaka vrste dokumenta PO : poslovnik PR : procedura UP : uputstvo OB : obrasci HP : HACCP plan Kodna oznaka uzastopnih dokumenata od 01 do 99 Pri pisanju dokumenata potrebno je obratiti pažnju na: dužinu i složenost rečenica (optimalno 18 do 20 reči u rečenici), izabrati jasne reči i neposredan način izražavanja, maksimalno koristiti aktivne glagole, uopštavanja i apstrakcije svesti na najmanju moguću meru i sl. Štampa i distribucija dokumenta Pripremljeni, overeni i odobreni dokumenti odlaze na štampu. Štampanje novih dokumenata je isključivo u nadležnosti vođe HACCP-a. Distribuciju novih dokumenata korisnicima vrši isključivo HACCP tim, koji je odgovoran za njihovu tačnost i ažurnost, uz potpis distributivne liste Upravljanje dokumentima Originalni dokument (pripremljeni, overeni i odobreni) se čuvaju isključivo u arhivi HACCP tima. Svim dokumentima koji nastaju upravlja se na sledeći način: izrada dokumenata sva dokumenta sistema HACCP-a se izrađuju na osnovu ovog uputstva i za njenu primenu odgovoran je vođa HACCP tima. štampanje dokumenata sva štampa /novih, izmenjenih i privremeno odobrenih/ dokumenata se vrši pod nadzorom vođe i ostalih članova HACCP tima. distribucija dokumenata (kopije) sva umnožavanja i izrada kopija dokumenata, njihovu distribuciju i povlačenje /zamenu/ vrši vođa HACCP tima. arhiviranje dokumenata (arhiva u arhivi HACCP tima i kod korisnika) sva dokumenta u originalu se nalaze u arhivi HACCP tima u posebnim ormanima i fasciklama/registratorima i za njihovu ažurnost, evidentiranje i klasifikaciju odgovoran je vođa HACCP tima. Za dokumenta distribuirana korisnicima, odgovorni su isti, a nalaze se u njihovim ličnim arhivama. Uputstva se pored arhive HACCP tima i arhivama rukovodioca organizacionih celina, nalaze i na konkretnim mestima izvršenja predmetne aktivnosti, lako dostupna direktnim izvršiocima. Originalna dokumenta koja se nalaze u arhivi HACCP tima, kao i originalni primerci služe za verifikaciju svih izdatih kopija i ne mogu se koristiti u druge svrhe. - zamena dokumenata nakon izmene ili dopune sve izmene, dopune ili nova izdanja dokumenata sprovodi vođa HACCP tima periodično preispitivanje dokumenata sva dokumenta sistema bezbednosti se periodično preispituju od strane odgovornih osoba za konkretni dokument na osnovu odgovornosti članova HACCP tima Zapisi Registar dokumenata……………………………………..OB-17 Prilozi – dokumentacija matrica odgovornosti članova HACCPtima Izmene dokumenata br\n\nIzradio:\n\nOdobrio:\n\nDatum primene\n\nIme :\n\nFunkcija:\n\nPotpis:"
+  },
+  {
+    "code": "UP-08",
+    "kind": "UP",
+    "title": "Verifikacija CCP",
+    "source_filename": "UP-08- za verifikaciju CCP.doc",
+    "is_fixed": false,
+    "note": "Način verifikacije prati kritične tačke tog objekta.",
+    "sort_order": 17,
+    "body": ""
+  },
+  {
+    "code": "OB-01",
+    "kind": "OB",
+    "title": "Nalog za korektivne mere",
+    "source_filename": "OB-1-nalog za korektivne mere.doc",
+    "is_fixed": true,
+    "note": "",
+    "sort_order": 18,
+    "body": "Datum:\n\nBroj naloga:\n\nNa osnovu:\n\nOdgovorno lice: _________________________\n\nOpis neusaglašenosti:\n\nZahtev standarda ili drugog referentnog dokumenta:\n\nTim ili ekspert za istraživanje uzroka i propisivanja korektivnih ili preventivnih mera:\n\n1.\n\n2.\n\n3.\n\nNalog izdao:\n\nPreventivne mere:\n\nMeru propisao:\n\nKorektivne mere:\n\nMeru propisao:\n\nSaglasan sa propisanim merama:\n\nRok za sprovođenje:\n\nOcena/verifikacija sprovedenih mera: Datum ______________ Proverivač _________________________\n\nNapomena:"
+  },
+  {
+    "code": "OB-02",
+    "kind": "OB",
+    "title": "Plan interne provere",
+    "source_filename": "OB-2-plan interne provere.doc",
+    "is_fixed": true,
+    "note": "",
+    "sort_order": 19,
+    "body": "Firma: Adresa:\n\nStandard CAC/RCP 1-1969,rev.5,2020\n\nVrsta provere INTERNA PROVERA\n\n1. Vođa tima\n\nPočetak:\n\nKraj:\n\n2. Proverivač\n\nProveravani:\n\n3. Proverivač\n\n4. Proverivač\n\nDatum/Vreme\n\nOdredba standarda\n\nTema\n\nProverivač\n\nProveravani\n\nUvodni sastanak\n\nCAC/RCP 1-2020\n\nPodručje primene, sastav HACCP tima,opis proizvoda, izrada dijagrama toka i verifikacija na licu mesta\n\nCAC/RCP 1-2020\n\nPrimena sistema HACCP-a\n\nCAC/RCP 1-2020\n\nUpravljanje dokumentima, GMP,GHP\n\nCAC/RCP 1-2020\n\nIndentifikacija i sledljivost, obuke\n\nCAC/RCP 1-2020\n\nZavršni sastanak\n\nPotpis:"
+  },
+  {
+    "code": "OB-03",
+    "kind": "OB",
+    "title": "Lista dozvoljenih sredstava",
+    "source_filename": "OB-3-lista dozvoljenih sredstava.doc",
+    "is_fixed": false,
+    "note": "Spisak hemikalija zavisi od onoga što objekat stvarno koristi.",
+    "sort_order": 20,
+    "body": ""
+  },
+  {
+    "code": "OB-04",
+    "kind": "OB",
+    "title": "Plan DD",
+    "source_filename": "OB-4-plan DD.doc",
+    "is_fixed": true,
+    "note": "",
+    "sort_order": 21,
+    "body": "Mesto\n\njanuar\n\nfebruar\n\nmart\n\napril\n\nmaj\n\njun\n\njul\n\navgust\n\nseptembar\n\noktobar\n\nnovembar\n\ndecembar\n\npl.\n\nvan.\n\npl.\n\nvan.\n\npl.\n\nvan.\n\npl.\n\nvan.\n\npl.\n\nvan.\n\npl.\n\nvan.\n\npl.\n\nvan.\n\npl.\n\nvan.\n\npl.\n\nvan.\n\npl.\n\nvan.\n\npl.\n\nvan.\n\npl.\n\nvan.\n\nProizvodnja\n\nLegenda:\n\n1. Dezinsekcija\n\n2. Deratizacija pl.- planirano van.-vanredno vođa HACCP tima ___________________"
+  },
+  {
+    "code": "OB-05",
+    "kind": "OB",
+    "title": "Evidencija DD",
+    "source_filename": "OB-5-evidencija DD.doc",
+    "is_fixed": true,
+    "note": "",
+    "sort_order": 22,
+    "body": "Mesto gde se izvodi DD\n\nDatum\n\nVrsta DD aktivnosti\n\nIzvođač DD\n\nNaziv sredstva kojim se vrši tretiranje\n\nPreporučene mere predostrožnosti posle primene\n\nOdgovorna osoba\n\nLegenda:\n\n1. Dezinsekcija\n\n2. Deratizacija"
+  },
+  {
+    "code": "OB-06",
+    "kind": "OB",
+    "title": "Monitoring glodara",
+    "source_filename": "OB-6-monitoring glodara.doc",
+    "is_fixed": true,
+    "note": "",
+    "sort_order": 23,
+    "body": "D A T U M K O N T R O L E\n\nNAPOMENA\n\nP R O C E N A P O J E D I N A Č N O G M A M K A / ništa, malo, srednje, sve/\n\nPOTPIS\n\nVodja HACCP"
+  },
+  {
+    "code": "OB-07",
+    "kind": "OB",
+    "title": "Monitoring insekata",
+    "source_filename": "OB-7-monitoring insekata.doc",
+    "is_fixed": true,
+    "note": "",
+    "sort_order": 24,
+    "body": "Mesto :\n\nOdgovorno lice:\n\nBroj kontrolnog mesta\n\nDATUM KONTROLE\n\nNAPOMENA\n\nBroj insekata na kontrolnom mestu\n\nOcena infestacije i preduzete mere\n\nVodja HACCP tima"
+  },
+  {
+    "code": "OB-08",
+    "kind": "OB",
+    "title": "Registar neusaglašenosti i korektivnih mera",
+    "source_filename": "OB-8-registar neusaglasíenosti i korek.mera.doc",
+    "is_fixed": true,
+    "note": "",
+    "sort_order": 25,
+    "body": "Redni broj\n\nNeusaglašenost / opis /\n\nKako je utvrđena\n\nBroj naloga\n\nKorektivne/preventivne mere\n\nOdgovorna osoba za sprovođenje\n\nRok za sprovođenje\n\nDatum verifikacije"
+  },
+  {
+    "code": "OB-09",
+    "kind": "OB",
+    "title": "Povlačenje proizvoda",
+    "source_filename": "OB-9-povlacenje proizvoda.doc",
+    "is_fixed": true,
+    "note": "",
+    "sort_order": 26,
+    "body": "Podaci osobe koja je dala prijavu\n\nVreme prijave (god, mesec, dan, čas, minut)\n\nIme osobe koja je dala prijavu:\n\nIme firme, institucije:\n\nBroj telefona firme, institucije:\n\nAdresa firme, institucije:\n\nOpis prijavljenog problema;\n\nKoliko je osoba ugroženo zbog nastalog problema\n\nPosledica po zdravlje  ima  nema\n\nAko ima, onda opis problema\n\nPodaci o proizvodu\n\nNaziv proizvoda:\n\nVreme kupovine:\n\nKupljena količina:\n\nInformacije sa deklaracije:\n\nInformacije je dao (ime, dostupnost)\n\nPREDUZETE MERE\n\nBroj lota:\n\nVeličina lota:\n\nOtpremljena količina:\n\nDistribucija otpremljene količine:\n\nOdredište otpreme:\n\nMesto i način obaveštavanja\n\nOtpremljena količina\n\nPovučena količina:\n\nDruge mere\n\nObaveštenje državnih institucija\n\nObaveštenje laboratorije za ispitivanje\n\nObaveštenje medije\n\nObaveštavanje drugih institucija\n\nDali je potrebno\n\n DA  NE\n\nNaziv obaveštene institucije\n\nNačin i vreme obaveštenja\n\nPredlog za sprečavanje ponovne pojave problema:\n\nProces završen (godina, mesec, dan, čas, minut):\n\nPotpis:"
+  },
+  {
+    "code": "OB-10",
+    "kind": "OB",
+    "title": "Praćenje temperature hlađenja",
+    "source_filename": "OB-10-obrazac CCP1.doc",
+    "is_fixed": true,
+    "note": "",
+    "sort_order": 27,
+    "body": "Praćenje temperature rashladnog uredjaja __________________________ za mesec _____________ Propisani režim hlađenja a) do +80C b) do -180C Redni broj\n\nDatum\n\nVreme\n\nIzmerena temperatura (0C)\n\nKorektivna mera\n\nPotpis\n\nLegenda: Korektivna mera RP – robu presložiti u drugi uredjaj OČ – očistiti rashladno telo"
+  },
+  {
+    "code": "OB-11",
+    "kind": "OB",
+    "title": "Higijena radnog prostora",
+    "source_filename": "OB-11-higijena radnog prostora.docx",
+    "is_fixed": true,
+    "note": "",
+    "sort_order": 28,
+    "body": "Redni broj\n\nDatum\n\nOprema za proizvodnju -SP\n\nKanta za smeće- SP\n\nCeo prostor - MP\n\nPotpis\n\nSP –Svakodnevni poslovi : NP – Nedeljni poslovi: MP – Mesečni poslovi"
+  },
+  {
+    "code": "OB-12",
+    "kind": "OB",
+    "title": "Radni nalog u proizvodnji",
+    "source_filename": "OB-12-Radni nalog u proizvodnji.docx",
+    "is_fixed": true,
+    "note": "",
+    "sort_order": 29,
+    "body": "Radni nalog u proizvodnji broj __________________ Datum_____________________ Vreme proizvodnje\n\nNaziv proizvoda ili zamesa\n\nSirovina (naziv i količina)\n\nDobavljač\n\nLot broj\n\nSanitacija opreme\n\nRezultati CCP monitoringa\n\nNapomena"
+  },
+  {
+    "code": "OB-13",
+    "kind": "OB",
+    "title": "Izjava posetilaca",
+    "source_filename": "OB-13- Izjava posetilaca.doc",
+    "is_fixed": true,
+    "note": "",
+    "sort_order": 30,
+    "body": "IZJAVA POSETIOCA Ja ___________________________________________________________________ (ime i prezime, firma) ovim potvrđujem da sam upoznat/a sa pravilima higijene i ponašanja koje su na snazi u ovom objektu, kao i sa merama koje su potrebne za očuvanje bezbednosti hrane. Izjavljujem da: Zdravstveno stanje – Nemam simptome bolesti koji bi mogli ugroziti bezbednost hrane, uključujući, ali ne ograničavajući se na groznicu, kašalj, povraćanje, dijareju ili druge zarazne bolesti. Nisam bilo/la u kontaktu sa zaraznim bolestima u poslednjih 14 dana. Pridržavanje higijenskih mera- Pridržavaću se svih higijenskih mera koje su propisane u ovom objektu, uključujući obavezno nošenje zaštitne opreme (mrežice za kosu, rukavice, mantil i dr.), pranje i dezinfekciju ruku, kao i druge mere prema uputstvima odgovornog osoblja. Pravila ponašanja u objektu- Pratiću sva uputstva osoblja i neću unositi hranu, piće ili lične predmete koji nisu dozvoljeni u proizvodnim prostorijama hrane. Znam da je zabranjeno pušenje, fotografisanje i korišćenje mobilnih telefona u proizvodnim prostorijama. Prijavljivanje incidenata- Obavezujem se da ću odmah prijaviti svaku povredu, kontakt sa hranom ili bilo koji drugi incident koji bi mogao ugrozii bezbednost proizvoda. Potvrđujem da sam procitao/la i razumeo/la sve navedeno i obavezujem se da ću se pridržavati pravila kako bih doprineo/labezbednosti hrane u ovom objektu. Datum: ______________ Potpis posetioca:__________________________________________"
+  },
+  {
+    "code": "OB-14",
+    "kind": "OB",
+    "title": "Identifikacija i sledljivost",
+    "source_filename": "OB-14- Obrazac identifikacije i sledjivosti.doc",
+    "is_fixed": true,
+    "note": "",
+    "sort_order": 31,
+    "body": "Obrazac za identifikaciju i sledljivost u HACCP dokumentaciji za proizvodnju pekarskih proizvoda ima za cilj praćenje proizvoda od ulaza sirovina do prodaje krajnjem kupcu. Ovaj obrazac omogućava brzo reagovanje u slučaju povlačenja proizvoda zbog bezbednosnih problema ili drugih nepredviđenih situacija. OBRAZAC ZA IDENTIFIKACIJU I SLEDLJIVOST PROIZVODA\n\n1. Podaci o proizvodu • Naziv proizvoda: ___________________________\n\n2. Podaci o sirovini • Ime proizvoda: _____________________________ • Broj serije ili LOT broj: ______________________ • Datum proizvodnje: _________________________ • Rok trajanja _______________________________\n\n3. Skladištenje i rukovanje • Mesto skladištenja (frizider)_______________________ • Temperatura skladištenja _________________________ • Datum i vreme premeštanja ili skladištenja: _______________________\n\n4. Informacije o distribuciji • Datum stavljanja na policu: _______________________ • Rok trajanja na polici: ___________________________ • Broj povučenih / prodatih jedinica (ako je relevantno): _______________________\n\n5. Sledljivost i kontrola kvaliteta • Datum provere kvaliteta: ______________________________________ • Ime zaposlenog koji je izvršio proveru: ___________________________ • Komentari o kvalitetu ili stanju proizvoda: ________________________\n\n6. Postupak u slučaju povlačenja proizvoda • Razlog povlačenja: ____________________________ • Datum povlačenja: ____________________________ • Kontakt osoba: _______________________________ • Broj povučenih proizvoda: ______________________\n\n7. Potpis odgovornog lica • Ime i prezime: _______________________ • Datum: _______________________ • Potpis: _______________________ Napomene: • Ovaj obrazac se može unaprediti dodavanjem QR koda ili digitalnog bar koda za brže praćenje proizvoda. • Obrazac može biti deo softverskog sistema, u kojem se podaci automatski ažuriraju, što dodatno olakšava praćenje. Ovako strukturiran obrazac omogućava maloprodaji da brzo identifikuje proizvode na policama, njihov status, rok trajanja i, ako je potrebno, brzo reaguje na potencijalne incidente u vezi sa bezbednošću hrane. Radni nalog u proizvodnji br._________________ datum ____________________\n\nDatum i vreme proizvodnje\n\nBroj serije\n\nSirovina (naziv i količina)\n\nDobavljač\n\nSanitacija opreme\n\nRezultati CCP monitoringa\n\nNapomena"
+  },
+  {
+    "code": "OB-15",
+    "kind": "OB",
+    "title": "Prijem sirovina",
+    "source_filename": "OB-15- obrazac za prijem.doc",
+    "is_fixed": true,
+    "note": "",
+    "sort_order": 32,
+    "body": "Objekat :\n\nPRIJEM SIROVINA\n\nDATUM\n\nSIROVINA\n\nPROIZVOĐAČ\n\nKOLIČINA\n\nVIZUELNA KONTROLA\n\nBEZBEDNOST PROIZVODA\n\nPOTPIS\n\nNAPOMENA\n\nVerifikacija kontrole Datum\n\nIme i prezime\n\nFunkcija\n\nPotpis"
+  },
+  {
+    "code": "OB-16",
+    "kind": "OB",
+    "title": "Praćenje temperature pečenja",
+    "source_filename": "OB-16 obrazac za CCP 2.docx",
+    "is_fixed": true,
+    "note": "",
+    "sort_order": 33,
+    "body": "Praćenje temperature pečenja za mesec _____________ Red. Br\n\nDatum\n\nVreme\n\nIzmerena temperatura (0C)\n\nVizuelna kontrola\n\nPotpis\n\nLegenda: Korektivna mera RP – robu prebaciti u drugu peć PP – popraviti peć"
+  },
+  {
+    "code": "OB-17",
+    "kind": "OB",
+    "title": "Registar dokumenta",
+    "source_filename": "OB-17-registar dokumenta.docx",
+    "is_fixed": true,
+    "note": "",
+    "sort_order": 34,
+    "body": "Redni broj\n\nKodna oznaka dokumenta\n\nNaziv dokumenta\n\nHP-01\n\nOpis proizvoda\n\nHP-02\n\nHP-03\n\nAnaliza opasnosti\n\nHP-04\n\nHACCP plan\n\nOB-01\n\nNalog za korektivne mere\n\nOB-02\n\nPlan interne provere\n\nOB-03\n\nLista dozvoljenih sredstava\n\nOB-04\n\nPlan DD\n\nOB-05\n\nEvidencija DD\n\nOB-06\n\nMonitoring glodara\n\nOB-07\n\nMonitoring insekata\n\nOB-08\n\nRegistar neusaglasenosti i korektivnih mera\n\nOB-09\n\nPovlacenje proizvoda\n\nOB-10\n\nObrazac za CCP1\n\nOB-11\n\nHigijena radnog prostora\n\nOB-12\n\nRadni nalog\n\nOB-13\n\nIzjava posetilaca\n\nOB-14\n\nObrazac identifikacije i sledjivosti\n\nOB-15\n\nObrazac za prijem sirovina\n\nOB-16\n\nObrazac za CCP 2\n\nOB-17\n\nRegistar dokumenta\n\nOB-18\n\nPlan slanja uzoraka\n\nOB-19\n\nKontrola sita CP\n\nOB.20\n\nPraćenje i kontrola merne opreme\n\nOB-21\n\nSpisak merne opreme\n\nPO-01\n\nPoslovnik\n\nPR-01\n\nOdluka\n\nPR-02\n\nInterne provere\n\nPR-03\n\nProcedura DD\n\nPR-04\n\nUpravljanja neusaglašenostima\n\nPR-05\n\nKorektivne i preventivne mere\n\nUP-01\n\nPrijem i skladistenje\n\nUP-02\n\nLična higijena\n\nUP-03\n\nČišćenje i održavanje higijene\n\nUP-04\n\nIdentifikacija i sledljivost\n\nUP-05\n\nOpoziv proizvoda\n\nUP-06\n\nKontrola merne opreme\n\nUP-07\n\nIzrada i upravljanje dokumentima\n\nUP-08\n\nVerifikaciju CCP"
+  },
+  {
+    "code": "OB-18",
+    "kind": "OB",
+    "title": "Plan slanja uzoraka",
+    "source_filename": "OB-18- plan slanja uzoraka.docx",
+    "is_fixed": false,
+    "note": "Vrste uzoraka i ritam zavise od asortimana objekta.",
+    "sort_order": 35,
+    "body": ""
+  },
+  {
+    "code": "OB-19",
+    "kind": "OB",
+    "title": "Kontrola sita",
+    "source_filename": "OB-19-kontrola sita CP.docx",
+    "is_fixed": true,
+    "note": "",
+    "sort_order": 36,
+    "body": "Redni broj\n\nDatum\n\nVreme\n\nVizuelna kontrola\n\nKorektivna mera\n\nPotpis\n\nLegenda: Korektivna mera ZP – zaustavljanje proizvodnje ZS – zameniti sito"
+  },
+  {
+    "code": "OB-20",
+    "kind": "OB",
+    "title": "Praćenje i kontrola mernih instrumenata",
+    "source_filename": "OB-20- praćenje i kontrola mernih instrumenata.doc",
+    "is_fixed": true,
+    "note": "",
+    "sort_order": 37,
+    "body": "Redni broj\n\nMerna oprema\n\nKalibrisan do\n\nPregled u mesecu\n\nNaziv\n\nOznaka"
+  },
+  {
+    "code": "OB-21",
+    "kind": "OB",
+    "title": "Spisak merne opreme",
+    "source_filename": "OB-21-spisak merne opreme.doc",
+    "is_fixed": true,
+    "note": "",
+    "sort_order": 38,
+    "body": "Redni broj\n\nOznaka\n\nNaziv merne opreme\n\nLokacija\n\nProizvođač\n\nGrupa/klasa\n\nInventarski /serijski broj\n\nOblast merenja\n\nOpseg merenja\n\nU cilju usaglašavanja sa zakonskim propisima i normativima, preporučuje se vođi HACCP tima, da uradi ateste za sve mašine u proizvodnji . Takođe se kao preporuka navodi baždarenje svih mernih instrumenata. Za atestiranje i baždarenje potrebno je angažovati akreditovano telo ( firmu) koja će izdati odgovarajuću prateću dokumentaciju. Sva raspoloživa dokumenta potrebno je čuvati u postojeću arhivu dokumenata."
+  }
+]

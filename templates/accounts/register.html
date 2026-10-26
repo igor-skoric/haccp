@@ -1,0 +1,27 @@
+{% extends 'base.html' %}
+
+{% block title %}Registracija · HACCP{% endblock %}
+
+{% block content %}
+<section class="section">
+  <div class="wrap narrow">
+    <h1>Novi objekat</h1>
+    <p class="section-note">Otvara se klijent i vlasnički nalog. Delatnost određuje šta će panel kasnije prikazati.</p>
+    <form method="post" class="stack-form" novalidate>
+      {% csrf_token %}
+      {% if form.non_field_errors %}
+        <div class="form-errors">{{ form.non_field_errors }}</div>
+      {% endif %}
+      {% for field in form %}
+        <div class="form-row{% if field.name == 'first_name' or field.name == 'last_name' %} form-row-half{% endif %}">
+          <label for="{{ field.id_for_label }}">{{ field.label }}</label>
+          {{ field }}
+          {{ field.errors }}
+        </div>
+      {% endfor %}
+      <button class="button" type="submit">Otvori nalog</button>
+    </form>
+    <p class="form-switch">Već imate nalog? <a href="{% url 'login' %}">Prijavite se</a></p>
+  </div>
+</section>
+{% endblock %}

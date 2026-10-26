@@ -1,0 +1,18 @@
+{% extends 'base.html' %}
+
+{% block title %}Sesija je istekla · HACCP{% endblock %}
+
+{% block content %}
+<section class="section">
+  <div class="wrap narrow-read">
+    <h1>Sesija je istekla</h1>
+    <p class="lede">
+      Forma je zastarela (CSRF). Osveži stranicu i pokušaj ponovo.
+      Koristi uvek isti adresu, npr. samo <code>http://127.0.0.1:8002</code>.
+    </p>
+    <div class="hygiene-actions">
+      <a class="button" href="{% url 'login' %}">Nazad na prijavu</a>
+    </div>
+  </div>
+</section>
+{% endblock %}

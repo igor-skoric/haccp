@@ -1,0 +1,116 @@
+{% extends 'base.html' %}
+
+{% block title %}Danas · HACCP{% endblock %}
+
+{% block content %}
+<section class="section">
+  <div class="wrap">
+    <h1>Danas</h1>
+
+    <div class="stat-row">
+      <div class="stat">
+        <span class="stat-k">Merenja OK</span>
+        <strong>{{ ok_count }}/{{ sensors|length }}</strong>
+      </div>
+      <div class="stat {% if alert_count %}stat-bad{% endif %}">
+        <span class="stat-k">Otvoreni alerti</span>
+        <strong>{{ alert_count }}</strong>
+      </div>
+      <div class="stat">
+        <span class="stat-k">Obaveze</span>
+        <strong>{{ todo_count }}</strong>
+      </div>
+      <div class="stat">
+        <span class="stat-k">U toku</span>
+        <strong>{{ in_progress_count }}</strong>
+      </div>
+      {% if open_receipts_count %}
+        <div class="stat">
+          <span class="stat-k">Otvoreni prijemi</span>
+          <strong>{{ open_receipts_count }}</strong>
+        </div>
+      {% endif %}
+      <div class="stat {% if missed_count %}stat-bad{% endif %}">
+        <span class="stat-k">Zaostalo</span>
+        <strong>{{ missed_count }}</strong>
+      </div>
+    </div>
+
+    <div class="block-head">
+      <h2>Obaveze</h2>
+    </div>
+    {% if for_today or hygiene_continue %}
+      <div class="task-list">
+        {% for task in for_today %}
+          {% include 'ops/_task_row.html' with task=task next='today' from_key=from_key %}
+        {% endfor %}
+        {% if hygiene_continue %}
+          {% include 'ops/_task_row.html' with task=hygiene_continue next='today' from_key=from_key %}
+        {% endif %}
+      </div>
+    {% else %}
+      <p class="lede">Nema obaveza za danas.</p>
+    {% endif %}
+
+    {% if receiving.available or receiving.open_count %}
+      <div class="block-head">
+        <h2>Evidencija</h2>
+      </div>
+      {% include 'ops/_receiving_card.html' with receiving=receiving next='today' from_key=from_key %}
+    {% endif %}
+
+    {% if backlog_preview %}
+      <div class="block-head">
+        <h2>Zaostalo</h2>
+        <a href="{% url 'tasks' %}#propušteni">Sve ({{ missed_count }})</a>
+      </div>
+      <div class="task-list">
+        {% for task in backlog_preview %}
+          {% include 'ops/_task_row.html' with task=task next='today' from_key=from_key %}
+        {% endfor %}
+      </div>
+      {% if backlog_more %}
+        <p class="lede backlog-more">
+          <a href="{% url 'tasks' %}#propušteni">Još {{ backlog_more }} zaostalih</a>
+        </p>
+      {% endif %}
+    {% endif %}
+
+    {% if alerts %}
+      <div class="block-head">
+        <h2>Alerti</h2>
+        <a href="{% url 'alerts' %}">Svi</a>
+      </div>
+      <div class="alert-stack">
+        {% for alert in alerts %}
+          <a class="alert-card alert-{{ alert.level }}" href="{% url 'alerts' %}">
+            <strong>{{ alert.title }}</strong>
+            <span>{{ alert.detail }}</span>
+          </a>
+        {% endfor %}
+      </div>
+    {% endif %}
+
+    <div class="block-head">
+      <h2>Temperature</h2>
+      <a href="{% url 'temperatures' %}">Unos · {{ measured_today }}/{{ spots_total }}</a>
+    </div>
+    <div class="temp-grid">
+      {% for s in sensors %}
+        <article class="temp-card temp-{{ s.status }}">
+          <span class="temp-place">{{ s.vitrine }}</span>
+          {% if s.temp != None %}
+            <strong class="temp-value">{{ s.temp }}<small>{{ s.unit }}</small></strong>
+          {% else %}
+            <strong class="temp-value temp-missing">—</strong>
+          {% endif %}
+          <span class="temp-label">{{ s.label }}</span>
+          <span class="temp-range">{{ s.min_c }}–{{ s.max_c }} °C</span>
+        </article>
+      {% empty %}
+        <p class="lede">Nema mernih tačaka.</p>
+      {% endfor %}
+    </div>
+  </div>
+</section>
+{% endblock %}

@@ -1,0 +1,46 @@
+{% if task.can_create_receiving %}
+  <form method="post" action="{% url 'receiving_create' %}">
+    {% csrf_token %}
+    <input type="hidden" name="next" value="{{ next }}">
+    <input type="hidden" name="from" value="{{ from_key|default:next }}">
+    <button class="task-row prio-{{ task.priority }}" type="submit">
+      <span class="task-check" aria-hidden="true">{{ task.mark }}</span>
+      <div class="task-main">
+        <strong>{{ task.title }}</strong>
+        {% if task.meta %}<span>{{ task.meta }}</span>{% endif %}
+      </div>
+      <span class="task-when">{{ task.action_label|default:task.when }}</span>
+    </button>
+  </form>
+{% elif task.href %}
+  <a class="task-row {% if task.done %}is-done{% endif %} prio-{{ task.priority }}" href="{{ task.href }}">
+    <span class="task-check" aria-hidden="true">{{ task.mark }}</span>
+    <div class="task-main">
+      <strong>{{ task.title }}</strong>
+      {% if task.meta %}<span>{{ task.meta }}</span>{% endif %}
+    </div>
+    <span class="task-when{% if task.action_label %} task-action{% endif %}">{{ task.action_label|default:task.when }}</span>
+  </a>
+{% elif task.can_confirm %}
+  <form method="post" action="{% url 'task_done' task.id %}">
+    {% csrf_token %}
+    <input type="hidden" name="next" value="{{ next }}">
+    <button class="task-row prio-{{ task.priority }}" type="submit">
+      <span class="task-check" aria-hidden="true">{{ task.mark }}</span>
+      <div class="task-main">
+        <strong>{{ task.title }}</strong>
+        {% if task.meta %}<span>{{ task.meta }}</span>{% endif %}
+      </div>
+      <span class="task-when">{{ task.when }}</span>
+    </button>
+  </form>
+{% else %}
+  <div class="task-row {% if task.done %}is-done{% endif %} prio-{{ task.priority }} is-locked">
+    <span class="task-check" aria-hidden="true">{{ task.mark }}</span>
+    <div class="task-main">
+      <strong>{{ task.title }}</strong>
+      <span>{% if task.meta %}{{ task.meta }}{% endif %}{% if task.status == 'missed' %}{% if task.meta %} · {% endif %}Nije dostupno za naknadni unos{% endif %}</span>
+    </div>
+    <span class="task-when">{{ task.when }}</span>
+  </div>
+{% endif %}

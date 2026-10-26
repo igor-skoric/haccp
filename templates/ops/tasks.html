@@ -1,0 +1,66 @@
+{% extends 'base.html' %}
+
+{% block title %}Zadaci · HACCP{% endblock %}
+
+{% block content %}
+<section class="section">
+  <div class="wrap">
+    <h1>Zadaci</h1>
+
+    {% if receiving.available or receiving.open_count %}
+      <div class="block-head">
+        <h2>Evidencija</h2>
+        <a href="{% url 'receiving_list' %}?from=tasks">Istorija prijema</a>
+      </div>
+      {% include 'ops/_receiving_card.html' with receiving=receiving next='tasks' from_key=from_key %}
+    {% else %}
+      <div class="block-head">
+        <h2>Evidencija</h2>
+        <a href="{% url 'receiving_list' %}?from=tasks">Istorija prijema</a>
+      </div>
+    {% endif %}
+
+    <div class="block-head">
+      <h2>Aktivni</h2>
+    </div>
+    {% if for_today or hygiene_continue %}
+      <div class="task-list">
+        {% for task in for_today %}
+          {% include 'ops/_task_row.html' with task=task next='tasks' from_key=from_key %}
+        {% endfor %}
+        {% if hygiene_continue %}
+          {% include 'ops/_task_row.html' with task=hygiene_continue next='tasks' from_key=from_key %}
+        {% endif %}
+      </div>
+    {% else %}
+      <p class="lede">Nema aktivnih obaveza.</p>
+    {% endif %}
+
+    <div class="block-head" id="završeni">
+      <h2>Završeni</h2>
+    </div>
+    {% if completed_tasks %}
+      <div class="task-list">
+        {% for task in completed_tasks %}
+          {% include 'ops/_task_row.html' with task=task next='tasks' from_key=from_key %}
+        {% endfor %}
+      </div>
+    {% else %}
+      <p class="lede">Nema završenih zadataka.</p>
+    {% endif %}
+
+    <div class="block-head" id="propušteni">
+      <h2>Propušteni</h2>
+    </div>
+    {% if missed_tasks %}
+      <div class="task-list">
+        {% for task in missed_tasks %}
+          {% include 'ops/_task_row.html' with task=task next='tasks' from_key=from_key %}
+        {% endfor %}
+      </div>
+    {% else %}
+      <p class="lede">Nema propuštenih zadataka.</p>
+    {% endif %}
+  </div>
+</section>
+{% endblock %}

@@ -1,0 +1,29 @@
+{% extends 'base.html' %}
+
+{% block title %}{{ meta.label }} · HACCP{% endblock %}
+
+{% block content %}
+<section class="section">
+  <div class="wrap">
+    <h1>{{ meta.label }}</h1>
+    <div class="doc-list">
+      {% for document in documents %}
+        <a class="doc-row" href="{% url 'document' document.code %}">
+          <span class="doc-code">{{ document.code }}</span>
+          <span class="doc-main">
+            <strong>{{ document.title }}</strong>
+            <span>{{ document.source_filename }}</span>
+          </span>
+          {% if document.is_fixed %}
+            <span class="pill">Isto za sve</span>
+          {% else %}
+            <span class="pill pill-wait">Po objektu</span>
+          {% endif %}
+        </a>
+      {% empty %}
+        <p>Nema dokumenata u ovoj grupi.</p>
+      {% endfor %}
+    </div>
+  </div>
+</section>
+{% endblock %}

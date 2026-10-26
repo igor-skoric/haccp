@@ -1,0 +1,56 @@
+{% extends 'base.html' %}
+
+{% block title %}Higijena · HACCP{% endblock %}
+
+{% block content %}
+<section class="section">
+  <div class="wrap">
+    <h1>Higijena radnog prostora</h1>
+
+    <div class="hygiene-actions">
+      {% if hygiene_today %}
+        <a class="button" href="{% url 'hygiene_detail' hygiene_today.pk %}?from=hygiene_list">
+          {% if hygiene_today.status == 'done' %}Pregledaj današnju{% else %}Nastavi današnju{% endif %}
+        </a>
+      {% else %}
+        <a class="button" href="{% url 'hygiene_today' %}?from=hygiene_list">Kreiraj za danas</a>
+      {% endif %}
+      <a class="button button-ghost" href="{% url 'tasks' %}">Zadaci</a>
+    </div>
+
+    <div class="block-head">
+      <h2>Istorija</h2>
+    </div>
+    {% if checks %}
+      <div class="doc-list hygiene-history">
+        {% for item in checks %}
+          <a class="doc-row" href="{% url 'hygiene_detail' item.pk %}?from=hygiene_list">
+
+            <span class="doc-code">{{ item.work_date|date:"d.m.Y" }}</span>
+            <span class="doc-main">
+              <strong>
+                {% if item.status == 'done' %}Završeno{% else %}U toku{% endif %}
+                · {{ item.required_done_count }}/{{ item.required_total_count }} svakodnevnih
+              </strong>
+              <span>
+                {% if item.completed_by %}
+                  {{ item.completed_by.get_full_name|default:item.completed_by.username }}
+                  {% if item.completed_at %} · {{ item.completed_at|date:"d.m.Y H:i" }}{% endif %}
+                {% else %}
+                  {{ item.created_by.get_full_name|default:item.created_by.username }}
+                  · {{ item.created_at|date:"d.m.Y H:i" }}
+                {% endif %}
+              </span>
+            </span>
+            <span class="pill {% if item.status != 'done' %}pill-wait{% endif %}">
+              {% if item.status == 'done' %}Sačuvano{% else %}Otvoreno{% endif %}
+            </span>
+          </a>
+        {% endfor %}
+      </div>
+    {% else %}
+      <p class="lede">Nema zapisa.</p>
+    {% endif %}
+  </div>
+</section>
+{% endblock %}

@@ -1,0 +1,65 @@
+{% extends 'base.html' %}
+
+{% block title %}HACCP · evidencija bezbednosti hrane{% endblock %}
+
+{% block content %}
+<section class="hero">
+  <div class="wrap hero-grid">
+    <div>
+      <p class="eyebrow">Test verzija</p>
+      <h1>Evidencija bezbednosti hrane, po delatnosti objekta.</h1>
+      <p class="lede">Jedna aplikacija za više klijenata. Kafić, poslastičarnica i proizvodnja ne dele zapise, a svaka delatnost dobija svoje module.</p>
+      <div class="hero-actions">
+        <a class="button" href="{% url 'register' %}">Otvori nalog</a>
+        <a class="button button-ghost" href="{% url 'login' %}">Već imam nalog</a>
+      </div>
+    </div>
+    <aside class="hero-card">
+      <p class="hero-card-label">Šta ostaje odvojeno</p>
+      <ul>
+        <li>Objekat i njegovi korisnici</li>
+        <li>Delatnost i moduli koji idu uz nju</li>
+        <li>Zapisi koji će doći u narednim koracima</li>
+      </ul>
+    </aside>
+  </div>
+</section>
+
+<section class="section">
+  <div class="wrap">
+    <h2>Delatnosti</h2>
+    <p class="section-note">Izaberite delatnost pri otvaranju naloga. Nove se dodaju bez menjanja ostalih klijenata.</p>
+    <div class="card-grid">
+      {% for industry in industries %}
+        <article class="card">
+          <h3>{{ industry.name }}</h3>
+          <p>{{ industry.description }}</p>
+          <a href="{% url 'register' %}?delatnost={{ industry.code }}">Otvori nalog za {{ industry.name|lower }}</a>
+        </article>
+      {% empty %}
+        <p>Delatnosti još nisu unete.</p>
+      {% endfor %}
+    </div>
+  </div>
+</section>
+
+<section class="section section-muted">
+  <div class="wrap">
+    <h2>Kako se ulazi</h2>
+    <ol class="steps">
+      <li>
+        <strong>Objekat</strong>
+        <span>Registracija otvara klijenta: naziv objekta i delatnost.</span>
+      </li>
+      <li>
+        <strong>Vlasnik</strong>
+        <span>Prvi korisnik je vlasnik tog objekta. Zaposleni dolaze kasnije.</span>
+      </li>
+      <li>
+        <strong>Panel</strong>
+        <span>Posle prijave vidi se samo taj objekat i moduli njegove delatnosti.</span>
+      </li>
+    </ol>
+  </div>
+</section>
+{% endblock %}

@@ -1,0 +1,195 @@
+{% extends 'base.html' %}
+
+{% block title %}OB-15 · Prijem sirovina · HACCP{% endblock %}
+
+{% block content %}
+<section class="section">
+  <div class="wrap narrow-read">
+    <p class="eyebrow">OB-15</p>
+    <h1>Prijem sirovina</h1>
+    <p class="lede">
+      {{ receipt.organization.name }}
+      · {{ receipt.received_on|date:"d.m.Y" }}
+    </p>
+
+    <div class="stat-row hygiene-stats">
+      <div class="stat">
+        <span class="stat-k">Stavke</span>
+        <strong>{{ receipt.lines.count }}</strong>
+      </div>
+      <div class="stat {% if receipt.status == 'open' %}stat-bad{% endif %}">
+        <span class="stat-k">Status</span>
+        <strong class="stat-text">
+          {% if receipt.status == 'done' %}Završeno
+          {% elif receipt.status == 'cancelled' %}Otkazano
+          {% else %}U toku{% endif %}
+        </strong>
+      </div>
+      {% if receipt.status == 'done' %}
+        <div class="stat {% if control_result == 'failed' %}stat-bad{% endif %}">
+          <span class="stat-k">Rezultat</span>
+          <strong class="stat-text">
+            {% if control_result == 'passed' %}Ispravno{% elif control_result == 'failed' %}Neispravno{% else %}—{% endif %}
+          </strong>
+        </div>
+      {% endif %}
+    </div>
+
+    {% if receipt.completed_by %}
+      <p class="lede">
+        {{ receipt.completed_by.get_full_name|default:receipt.completed_by.username }}
+        {% if receipt.completed_at %} · {{ receipt.completed_at|date:"d.m.Y H:i" }}{% endif %}
+      </p>
+    {% endif %}
+
+    {% if receipt.status == 'cancelled' and receipt.cancelled_by %}
+      <p class="lede">
+        Otkazao:
+        {{ receipt.cancelled_by.get_full_name|default:receipt.cancelled_by.username }}
+        {% if receipt.cancelled_at %} · {{ receipt.cancelled_at|date:"d.m.Y H:i" }}{% endif %}
+        {% if receipt.cancellation_reason %} · {{ receipt.cancellation_reason }}{% endif %}
+      </p>
+    {% endif %}
+
+    {% if receipt.verified_by %}
+      <p class="lede">
+        Verifikacija:
+        {{ receipt.verified_by.get_full_name|default:receipt.verified_by.username }}
+        {% if receipt.verifier_role %} · {{ receipt.verifier_role }}{% endif %}
+        {% if receipt.verified_on %} · {{ receipt.verified_on|date:"d.m.Y" }}{% endif %}
+        {% if receipt.verified_at %} {{ receipt.verified_at|date:"H:i" }}{% endif %}
+      </p>
+    {% endif %}
+
+    <div class="block-head">
+      <h2>Sirovine</h2>
+    </div>
+
+    {% if lines %}
+      <div class="receiving-lines">
+        {% for item in lines %}
+          <article class="receiving-line {% if item.visual_check == 'not_ok' or item.product_safety == 'not_ok' %}is-bad{% endif %}">
+            {% if readonly %}
+              <strong>{{ item.raw_material|default:"—" }}</strong>
+              <span>{{ item.manufacturer|default:"—" }} · {{ item.quantity|default:"—" }}</span>
+              {% if item.visual_check or item.product_safety %}
+                <span>
+                  Vizuelno: {% if item.visual_check == 'ok' %}ispravno{% elif item.visual_check == 'not_ok' %}neispravno{% else %}—{% endif %}
+                  · Bezbednost: {% if item.product_safety == 'ok' %}ispravno{% elif item.product_safety == 'not_ok' %}neispravno{% else %}—{% endif %}
+                </span>
+              {% endif %}
+              {% if item.note %}<span>{{ item.note }}</span>{% endif %}
+            {% else %}
+              <form method="post" class="stack-form receiving-line-form" novalidate>
+                {% csrf_token %}
+                <input type="hidden" name="from" value="{{ from_key }}">
+                <input type="hidden" name="action" value="update_line">
+                <input type="hidden" name="line_id" value="{{ item.pk }}">
+                {% with form=item.form %}
+                  {% for field in form %}
+                    <div class="form-row{% if field.name != 'note' %} form-row-half{% endif %}">
+                      <label for="{{ field.id_for_label }}">{{ field.label }}</label>
+                      {{ field }}
+                      {{ field.errors }}
+                    </div>
+                  {% endfor %}
+                {% endwith %}
+                <div class="hygiene-actions">
+                  <button class="button button-ghost" type="submit">Sačuvaj stavku</button>
+                </div>
+              </form>
+              <form method="post" class="receiving-delete">
+                {% csrf_token %}
+                <input type="hidden" name="from" value="{{ from_key }}">
+                <input type="hidden" name="action" value="delete_line">
+                <input type="hidden" name="line_id" value="{{ item.pk }}">
+                <button class="button button-ghost" type="submit">Obriši</button>
+              </form>
+            {% endif %}
+          </article>
+        {% endfor %}
+      </div>
+    {% else %}
+      <p class="lede">Još nema unetih sirovina.</p>
+    {% endif %}
+
+    {% if not readonly %}
+      <div class="receiving-add-block">
+        <div class="block-head">
+          <h2>Dodaj stavku</h2>
+        </div>
+        <form method="post" class="stack-form settings-detail receiving-add-form" novalidate>
+          {% csrf_token %}
+          <input type="hidden" name="from" value="{{ from_key }}">
+          <input type="hidden" name="action" value="add_line">
+          {% for field in line_form %}
+            <div class="form-row{% if field.name != 'note' %} form-row-half{% endif %}">
+              <label for="{{ field.id_for_label }}">{{ field.label }}</label>
+              {{ field }}
+              {{ field.errors }}
+            </div>
+          {% endfor %}
+          <button class="button settings-save" type="submit">Dodaj stavku</button>
+        </form>
+      </div>
+
+      <div class="receiving-complete-block">
+        <form method="post" class="hygiene-actions receiving-complete-actions">
+          {% csrf_token %}
+          <input type="hidden" name="from" value="{{ from_key }}">
+          <input type="hidden" name="action" value="complete">
+          <button class="button" type="submit">Završi prijem</button>
+          <a class="button button-ghost" href="{{ history_url }}">Istorija</a>
+        </form>
+      </div>
+
+      {% if can_cancel %}
+        <details class="receiving-cancel">
+          <summary>Otkaži prijem</summary>
+          <form method="post" class="stack-form receiving-cancel-form" novalidate>
+            {% csrf_token %}
+            <input type="hidden" name="from" value="{{ from_key }}">
+            <input type="hidden" name="action" value="cancel">
+            <div class="form-row">
+              <label for="{{ cancel_form.cancellation_reason.id_for_label }}">{{ cancel_form.cancellation_reason.label }}</label>
+              {{ cancel_form.cancellation_reason }}
+              {{ cancel_form.cancellation_reason.errors }}
+            </div>
+            <div class="form-row form-check">
+              <label for="{{ cancel_form.confirm_cancel.id_for_label }}">
+                {{ cancel_form.confirm_cancel }}
+                {{ cancel_form.confirm_cancel.label }}
+              </label>
+              {{ cancel_form.confirm_cancel.errors }}
+            </div>
+            <button class="button button-ghost" type="submit">Potvrdi otkazivanje</button>
+          </form>
+        </details>
+      {% endif %}
+    {% else %}
+      {% if can_verify %}
+        <div class="block-head">
+          <h2>Verifikacija</h2>
+        </div>
+        <form method="post" class="stack-form settings-detail" novalidate>
+          {% csrf_token %}
+          <input type="hidden" name="from" value="{{ from_key }}">
+          <input type="hidden" name="action" value="verify">
+          {% for field in verify_form %}
+            <div class="form-row">
+              <label for="{{ field.id_for_label }}">{{ field.label }}</label>
+              {{ field }}
+              {{ field.errors }}
+            </div>
+          {% endfor %}
+          <button class="button settings-save" type="submit">Verifikuj prijem</button>
+        </form>
+      {% endif %}
+      <div class="hygiene-actions">
+        <a class="button button-ghost" href="{{ history_url }}">Istorija</a>
+        <a class="button button-ghost" href="{% url 'tasks' %}">Zadaci</a>
+      </div>
+    {% endif %}
+  </div>
+</section>
+{% endblock %}
