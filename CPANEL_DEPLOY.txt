@@ -9,13 +9,18 @@ HACCP — deploy na cPanel (SQLite, Passenger iz Python App)
        from haccp.wsgi import application
      ili ekvivalent koji cPanel predloži za Django projekat "haccp".
 
-2) Environment variables (u Python App) — tačne vrednosti za ovaj domen:
+2) Environment — OBAVEZNO (inače DisallowedHost / CSRF greške).
+   Opcija A: cPanel → Setup Python App → Environment variables
+   Opcija B: fajl .env u application root (kopiraj iz .env.example)
+
    DJANGO_DEBUG=0
    DJANGO_SECRET_KEY=<dugi-nasumicni-string>
    DJANGO_ALLOWED_HOSTS=haccp.rs.itbranch.rs
    DJANGO_CSRF_TRUSTED_ORIGINS=https://haccp.rs.itbranch.rs
    DJANGO_SECURE_SSL_REDIRECT=1
    (ako SSL petlja → DJANGO_SECURE_SSL_REDIRECT=0)
+
+   Posle izmene env / .env → Restart Python App.
 
 3) Terminal u cPanel-u (u application root)
    source /home/KORISNIK/virtualenv/.../bin/activate   # putanja koju pokaže Python App

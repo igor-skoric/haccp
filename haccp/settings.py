@@ -6,6 +6,27 @@ from django.core.exceptions import ImproperlyConfigured
 BASE_DIR = Path(__file__).resolve().parent.parent
 
 
+def _load_dotenv(path):
+    """Učitaj .env bez dodatnog paketa. Već postojeće env vrednosti imaju prednost."""
+    if not path.is_file():
+        return
+    for raw_line in path.read_text(encoding='utf-8').splitlines():
+        line = raw_line.strip()
+        if not line or line.startswith('#') or '=' not in line:
+            continue
+        key, _, value = line.partition('=')
+        key = key.strip()
+        if not key:
+            continue
+        value = value.strip()
+        if len(value) >= 2 and value[0] == value[-1] and value[0] in {'"', "'"}:
+            value = value[1:-1]
+        os.environ.setdefault(key, value)
+
+
+_load_dotenv(BASE_DIR / '.env')
+
+
 def _env_flag(name, default='0'):
     return os.environ.get(name, default).strip().lower() in {'1', 'true', 'yes', 'on'}
 
