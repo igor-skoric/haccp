@@ -305,3 +305,34 @@ class InspectionChecklistTests(TestCase):
         })
         record.refresh_from_db()
         self.assertEqual(record.answers, {'5': 'NP'})
+
+    def test_universal_fines_require_party_choice(self):
+        fresh = next(entry for entry in build_entries() if entry['code'] == 'IN-01')
+        stored = DocumentTemplate.objects.get(code='IN-01')
+        self.assertEqual(stored.title, 'Kaznene mere')
+        self.assertEqual(stored.source_filename, 'Kaznene mere.xlsx')
+        self.assertEqual(stored.checklist, fresh['checklist'])
+        self.assertEqual(
+            [party['key'] for party in stored.checklist['parties']],
+            ['pravno', 'preduzetnik', 'fizicko'],
+        )
+        self.assertGreaterEqual(len(stored.checklist['parties'][0]['groups']), 2)
+        self.assertGreater(len(stored.checklist['parties'][0]['groups'][0]['items']), 5)
+
+        self.client.force_login(self.staff)
+        index = self.client.get(reverse('document', args=['IN-01']))
+        self.assertContains(index, 'Pravno lice')
+        self.assertContains(index, 'Preduzetnik')
+        self.assertContains(index, 'Fizičko lice')
+        self.assertContains(index, 'Izaberite tip lica')
+        self.assertNotContains(index, stored.checklist['parties'][0]['groups'][0]['items'][0])
+
+        pravno = self.client.get(reverse('document', args=['IN-01']) + '?tip=pravno')
+        first_item = stored.checklist['parties'][0]['groups'][0]['items'][0]
+        self.assertContains(pravno, first_item)
+        self.assertContains(pravno, 'PRIVREDNI PRESTUP')
+        self.assertContains(pravno, 'is-on')
+
+        fizicko = self.client.get(reverse('document', args=['IN-01']) + '?tip=fizicko')
+        self.assertContains(fizicko, '30.000')
+        self.assertNotContains(fizicko, first_item)

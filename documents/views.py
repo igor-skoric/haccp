@@ -49,11 +49,13 @@ def detail(request, code):
         return _checklist_index(request, document)
     meta = KIND_BY_CODE[document.kind]
     view = {'mode': 'empty', 'blocks': []}
-    if document.is_fixed and document.body:
+    if document.is_fixed and (document.body or document.checklist):
         view = format_fixed_document(
             document.code,
             document.body,
             kind=document.kind,
+            checklist=document.checklist,
+            party=request.GET.get('tip'),
         )
     return render(request, 'documents/detail.html', {
         'document': document,

@@ -45,20 +45,55 @@
         {% if view.intro %}
           <p class="lede fine-intro">{{ view.intro|linebreaksbr }}</p>
         {% endif %}
-        <div class="fine-list">
-          {% for item in view.entries %}
-            <article class="fine-row">
-              <span class="fine-n">{{ item.n }}</span>
-              <div class="fine-main">
-                <p class="fine-finding">{{ item.finding }}</p>
-                <div class="fine-meta">
-                  {% if item.norm %}<span class="fine-norm">{{ item.norm }}</span>{% endif %}
-                  {% if item.fine %}<span class="fine-amount">{{ item.fine }}</span>{% endif %}
-                </div>
+        {% if view.parties %}
+          <div class="fine-party-pick" role="tablist" aria-label="Tip lica">
+            {% for party in view.parties %}
+              <a
+                class="fine-party{% if view.party and view.party.key == party.key %} is-on{% endif %}"
+                href="?tip={{ party.key }}"
+                role="tab"
+                aria-selected="{% if view.party and view.party.key == party.key %}true{% else %}false{% endif %}"
+              >{{ party.label }}</a>
+            {% endfor %}
+          </div>
+        {% endif %}
+        {% if view.party %}
+          {% for group in view.groups %}
+            <section class="fine-group">
+              <h2 class="fine-penalty">{{ group.penalty }}</h2>
+              {% if group.acts_label %}
+                <p class="fine-acts-label">{{ group.acts_label }}</p>
+              {% endif %}
+              <div class="fine-list">
+                {% for item in group.entries %}
+                  <article class="fine-row">
+                    <span class="fine-n">{{ item.n }}</span>
+                    <div class="fine-main">
+                      <p class="fine-finding">{{ item.finding }}</p>
+                    </div>
+                  </article>
+                {% endfor %}
               </div>
-            </article>
+            </section>
           {% endfor %}
-        </div>
+        {% elif view.parties %}
+          <p class="lede">Izaberite tip lica iznad da otvorite listu kazni.</p>
+        {% elif view.entries %}
+          <div class="fine-list">
+            {% for item in view.entries %}
+              <article class="fine-row">
+                <span class="fine-n">{{ item.n }}</span>
+                <div class="fine-main">
+                  <p class="fine-finding">{{ item.finding }}</p>
+                  <div class="fine-meta">
+                    {% if item.norm %}<span class="fine-norm">{{ item.norm }}</span>{% endif %}
+                    {% if item.fine %}<span class="fine-amount">{{ item.fine }}</span>{% endif %}
+                  </div>
+                </div>
+              </article>
+            {% endfor %}
+          </div>
+        {% endif %}
 
       {% elif view.blocks %}
         <div class="read-doc read-{{ view.mode }}">

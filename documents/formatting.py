@@ -3,6 +3,7 @@ from dataclasses import dataclass
 
 FINE_ITEM = re.compile(r'^(\d+)\.\s+(.+)$')
 FINE_META = re.compile(r'^\s+(.+?)\s+·\s+(.+)$')
+FINE_PARTY_KEYS = {'pravno', 'preduzetnik', 'fizicko'}
 
 KNOWN_HEADINGS = (
     'Cilj primene',
@@ -83,6 +84,46 @@ def parse_fine_entries(body: str):
     return {
         'intro': '\n'.join(intro).strip(),
         'entries': entries,
+    }
+
+
+def is_fines_catalog(data) -> bool:
+    return bool(isinstance(data, dict) and data.get('kind') == 'fines' and data.get('parties'))
+
+
+def present_fines(catalog: dict, selected_key: str | None = None) -> dict:
+    parties = list((catalog or {}).get('parties') or [])
+    selected = None
+    key = (selected_key or '').strip().casefold()
+    if key in FINE_PARTY_KEYS:
+        selected = next((party for party in parties if party.get('key') == key), None)
+    groups = []
+    if selected:
+        for group in selected.get('groups') or []:
+            entries = [
+                {
+                    'n': str(index),
+                    'finding': text,
+                    'norm': '',
+                    'fine': '',
+                }
+                for index, text in enumerate(group.get('items') or [], 1)
+            ]
+            groups.append({
+                'penalty': group.get('penalty') or '',
+                'acts_label': group.get('acts_label') or '',
+                'entries': entries,
+            })
+    return {
+        'mode': 'fines',
+        'intro': (
+            'Kaznene mere prema Zakonu o bezbednosti hrane. '
+            'Izaberite tip lica da vidite odgovarajuće iznose i radnje.'
+        ),
+        'parties': parties,
+        'party': selected,
+        'groups': groups,
+        'entries': [],
     }
 
 
@@ -252,9 +293,19 @@ def _cleanup_blocks(blocks: list[Block]) -> list[Block]:
     return cleaned
 
 
-def format_fixed_document(code: str, body: str, kind: str = '') -> dict:
+def format_fixed_document(
+    code: str,
+    body: str,
+    kind: str = '',
+    *,
+    checklist: dict | None = None,
+    party: str | None = None,
+) -> dict:
+    if is_fines_catalog(checklist):
+        return present_fines(checklist, party)
     if code == 'IN-01':
-        return {'mode': 'fines', **parse_fine_entries(body)}
+        # Stari seed bez kataloga — zadrži čitanje body teksta.
+        return {'mode': 'fines', 'parties': [], 'party': None, 'groups': [], **parse_fine_entries(body)}
 
     form_labels = (kind or code[:2]) == 'OB'
     blocks = parse_document_blocks(body, form_labels=form_labels)
