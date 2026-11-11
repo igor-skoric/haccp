@@ -9,7 +9,7 @@
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@400;500&family=IBM+Plex+Sans:wght@400;500;600&display=swap" rel="stylesheet">
-  <link rel="stylesheet" href="{% static 'css/app.css' %}?v=pro19">
+  <link rel="stylesheet" href="{% static 'css/app.css' %}?v=pro25">
 </head>
 <body class="{% if request.user.is_authenticated %}app-shell{% endif %}">
   {% if is_impersonating %}
@@ -51,7 +51,7 @@
   </header>
 
   {% if request.user.is_authenticated %}
-    <nav class="tabbar" aria-label="Glavni meni">
+    <nav class="tabbar{% if not can_pick_org %} tabbar-main{% endif %}" aria-label="Glavni meni">
       <p class="tabbar-title">Meni</p>
       {% if can_pick_org %}
         <a class="{% if nav == 'clients' %}is-on{% endif %}" href="{% url 'platform_clients' %}">
@@ -74,6 +74,23 @@
           </svg>
           <span class="tab-label">Početna</span>
         </a>
+        <a class="{% if nav == 'docs' %}is-on{% endif %}" href="{% url 'dashboard' %}" aria-label="HACCP doc.">
+          <svg class="tab-icon" viewBox="0 0 24 24" aria-hidden="true">
+            <path fill="none" stroke="currentColor" stroke-width="1.8" stroke-linejoin="round" stroke-linecap="round" d="M7 4h7l4 4v12H7z"/>
+            <path fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" d="M14 4v4h4M9.5 12h5M9.5 15.5h5M9.5 19h3"/>
+          </svg>
+          <span class="tab-label tab-label-stack">
+            <span>HACCP</span>
+            <span>doc.</span>
+          </span>
+        </a>
+        <a class="{% if nav == 'tasks' %}is-on{% endif %}" href="{% url 'tasks' %}">
+          <svg class="tab-icon" viewBox="0 0 24 24" aria-hidden="true">
+            <path fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" d="M9 6h11M9 12h11M9 18h11"/>
+            <path fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" d="M4 6.5 5.2 7.7 7.2 5.2M4 12.5 5.2 13.7 7.2 11.2M4 18.5 5.2 19.7 7.2 17.2"/>
+          </svg>
+          <span class="tab-label">Zadaci</span>
+        </a>
         <a class="{% if nav == 'temps' %}is-on{% endif %}" href="{% url 'temperatures' %}">
           <svg class="tab-icon" viewBox="0 0 24 24" aria-hidden="true">
             <path fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" d="M10 14.2V6.2a2 2 0 1 1 4 0v8a3.4 3.4 0 1 1-4 0z"/>
@@ -87,13 +104,6 @@
             <path fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" d="M10 19a2 2 0 0 0 4 0"/>
           </svg>
           <span class="tab-label">Alerti</span>
-        </a>
-        <a class="{% if nav == 'tasks' %}is-on{% endif %}" href="{% url 'tasks' %}">
-          <svg class="tab-icon" viewBox="0 0 24 24" aria-hidden="true">
-            <path fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" d="M9 6h11M9 12h11M9 18h11"/>
-            <path fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" d="M4 6.5 5.2 7.7 7.2 5.2M4 12.5 5.2 13.7 7.2 11.2M4 18.5 5.2 19.7 7.2 17.2"/>
-          </svg>
-          <span class="tab-label">Zadaci</span>
         </a>
         <a class="{% if nav == 'settings' %}is-on{% endif %}" href="{% url 'settings' %}">
           <svg class="tab-icon" viewBox="0 0 24 24" aria-hidden="true">

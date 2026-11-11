@@ -1,11 +1,11 @@
 {% extends 'base.html' %}
 
-{% block title %}Dokumentacija · HACCP{% endblock %}
+{% block title %}HACCP dokumentacija · HACCP{% endblock %}
 
 {% block content %}
 <section class="section">
   <div class="wrap">
-    <h1>Dokumentacija</h1>
+    <h1>HACCP dokumentacija</h1>
     <div class="hub">
       {% for card in cards %}
         <a class="hub-card" href="{% url card.url_name %}">

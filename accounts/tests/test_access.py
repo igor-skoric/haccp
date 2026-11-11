@@ -90,8 +90,13 @@ class AccessTests(TestCase):
         response = self.client.get(reverse('settings'))
         self.assertEqual(response.status_code, 200)
         self.assertNotContains(response, 'Konfiguracija')
-        self.assertContains(response, 'Dokumentacija')
         self.assertContains(response, 'Odjava')
+        self.assertContains(response, 'aria-label="HACCP doc."')
+        self.assertNotContains(response, '<strong>Dokumentacija</strong>')
+        docs = self.client.get(reverse('dashboard'))
+        self.assertEqual(docs.status_code, 200)
+        self.assertEqual(docs.context['nav'], 'docs')
+        self.assertContains(docs, 'HACCP doc.')
 
     def test_owner_settings_page_shows_configuration(self):
         self.client.force_login(self.owner_a)

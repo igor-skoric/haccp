@@ -4,14 +4,44 @@
 
 {% block content %}
 <section class="section">
-  <div class="{% if view.mode == 'fines' %}wrap{% else %}narrow-read{% endif %}">
+  <div class="{% if view.mode == 'fines' %}wrap{% elif view.mode == 'checklist_index' %}check-wrap{% else %}narrow-read{% endif %}">
     <p class="eyebrow">{{ document.code }}</p>
     <h1>{{ document.title }}</h1>
     <p class="source">Izvorni fajl: {{ document.source_filename }}</p>
     {% if document.is_fixed %}
       <p class="pill">Isto za sve klijente</p>
 
-      {% if view.mode == 'fines' %}
+      {% if view.mode == 'checklist_index' %}
+        <p class="check-subject">
+          <span>Naziv subjekta</span>
+          <strong>{% if view.subject %}{{ view.subject }}{% else %}nije izabran{% endif %}</strong>
+        </p>
+        {% if writable %}
+          <form method="post" class="check-start">
+            {% csrf_token %}
+            <button class="button" type="submit" name="action" value="start">Nova kontrola</button>
+          </form>
+        {% else %}
+          <p class="lede">Odgovori se čuvaju posebno za svaki objekat.</p>
+        {% endif %}
+        <div class="check-history">
+          {% for run in runs %}
+            <a class="check-run" href="{% url 'inspection_run' document.code run.pk %}">
+              <span class="check-run-top">
+                <strong>{{ run.created_at|date:"d.m.Y H:i" }}</strong>
+                <span class="pill {% if run.status == 'open' %}pill-wait{% endif %}">{{ run.get_status_display }}</span>
+              </span>
+              <span>
+                {% if run.created_by %}{{ run.created_by.get_full_name|default:run.created_by.username }}{% else %}—{% endif %}
+                · {{ run.progress_done }}/{{ run.progress_total }}
+              </span>
+            </a>
+          {% empty %}
+            <p class="lede">Još nema kontrola za ovaj objekat.</p>
+          {% endfor %}
+        </div>
+
+      {% elif view.mode == 'fines' %}
         {% if view.intro %}
           <p class="lede fine-intro">{{ view.intro|linebreaksbr }}</p>
         {% endif %}

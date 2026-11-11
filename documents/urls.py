@@ -8,5 +8,6 @@ urlpatterns = [
     path('uputstva/', views.library, {'kind': 'UP'}, name='instructions'),
     path('obrasci/', views.library, {'kind': 'OB'}, name='forms'),
     path('inspekcija/', views.library, {'kind': 'IN'}, name='inspection'),
+    path('dokument/<slug:code>/kontrola/<int:pk>/', views.inspection_run, name='inspection_run'),
     path('dokument/<slug:code>/', views.detail, name='document'),
 ]

@@ -1,0 +1,110 @@
+{% extends 'base.html' %}
+
+{% block title %}{{ document.code }} {{ document.title }} · HACCP{% endblock %}
+
+{% block content %}
+<section class="section">
+  <div class="check-wrap">
+    <p class="eyebrow">{{ document.code }}</p>
+    <h1>{{ document.title }}</h1>
+    <p class="source">
+      {{ run.created_at|date:"d.m.Y H:i" }}
+      {% if run.created_by %} · {{ run.created_by.get_full_name|default:run.created_by.username }}{% endif %}
+    </p>
+    <p class="pill {% if run.status == 'open' %}pill-wait{% endif %}">{{ run.get_status_display }}</p>
+    {% if run.status == 'done' %}
+      <p class="lede">
+        Završio
+        {% if run.completed_by %}{{ run.completed_by.get_full_name|default:run.completed_by.username }}{% endif %}
+        {% if run.completed_at %} · {{ run.completed_at|date:"d.m.Y H:i" }}{% endif %}
+      </p>
+    {% endif %}
+
+    <form method="post" class="check-form" autocomplete="off">
+      {% csrf_token %}
+      <p class="check-subject">
+        <span>Naziv subjekta</span>
+        <strong>{{ view.subject }}</strong>
+      </p>
+      <ul class="check-legend">
+        {% for opt in view.scale %}
+          <li><strong>{{ opt.label }}</strong>{% if opt.meaning %} {{ opt.meaning }}{% endif %}</li>
+        {% endfor %}
+      </ul>
+      <div class="check-meter" aria-label="{{ view.answered }}/{{ view.total }}">
+        <span style="width: {{ view.percent }}%"></span>
+      </div>
+      <p class="check-count">{{ view.answered }}/{{ view.total }}</p>
+
+      {% for group in view.groups %}
+        {% if view.folded %}
+          <details class="check-fold"{% if group.open %} open{% endif %}>
+            <summary>
+              <span>{{ group.title }}</span>
+              <span class="check-fold-count">{{ group.answered }}/{{ group.total }}</span>
+            </summary>
+        {% endif %}
+        {% for item in group.items %}
+          <div class="check-q{% if item.answer %} is-set{% endif %}">
+            <p class="check-q-text" id="q-{{ item.key }}">
+              <span class="read-n">{{ item.n }}</span>
+              {{ item.text }}
+            </p>
+            <div class="check-answer">
+              <div class="check-choices" style="--choices: {{ view.choice_count }}" role="radiogroup" aria-labelledby="q-{{ item.key }}">
+                {% for opt in view.scale %}
+                  <label class="check-choice check-{{ opt.value|lower }}{% if item.answer == opt.value %} is-on{% endif %}">
+                    <input
+                      type="radio"
+                      name="q_{{ item.key }}"
+                      value="{{ opt.value }}"
+                      aria-label="{{ opt.label }}{% if opt.meaning %}, {{ opt.meaning }}{% endif %}"
+                      {% if item.answer == opt.value %}checked{% endif %}
+                      {% if not view.writable %}disabled{% endif %}
+                    >
+                    <span>{{ opt.label }}</span>
+                  </label>
+                {% endfor %}
+              </div>
+              {% if view.writable %}
+                <label class="check-clear">
+                  <input type="radio" name="q_{{ item.key }}" value="">
+                  <span>Poništi</span>
+                </label>
+              {% endif %}
+            </div>
+            <label class="check-note">
+              <input
+                type="text"
+                name="n_{{ item.key }}"
+                value="{{ item.note }}"
+                placeholder="Napomena"
+                aria-label="Napomena"
+                {% if not view.writable %}disabled{% endif %}
+              >
+            </label>
+          </div>
+        {% endfor %}
+        {% if view.folded %}
+          </details>
+        {% endif %}
+      {% endfor %}
+
+      <label class="form-row check-remarks">
+        <span>Primedbe i sugestije</span>
+        <textarea name="remarks" rows="4" {% if not view.writable %}disabled{% endif %}>{{ view.remarks }}</textarea>
+      </label>
+
+      {% if view.writable %}
+        <div class="check-bar">
+          <p>{{ view.answered }}/{{ view.total }}</p>
+          <div class="check-actions">
+            <button class="button button-ghost" type="submit" name="action" value="save">Sačuvaj</button>
+            <button class="button" type="submit" name="action" value="complete">Završi</button>
+          </div>
+        </div>
+      {% endif %}
+    </form>
+  </div>
+</section>
+{% endblock %}

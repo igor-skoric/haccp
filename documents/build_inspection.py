@@ -2,6 +2,7 @@
 
 from __future__ import annotations
 
+import re
 from collections import OrderedDict
 from pathlib import Path
 
@@ -9,7 +10,7 @@ import openpyxl
 
 ROOT = Path(__file__).resolve().parents[1]
 REPORT = ROOT / 'Report Sloy B.xlsx'
-LISTS = ROOT / 'Kontrolne liste digital empty.xlsx'
+LISTS = ROOT / 'Kontrolne liste latinica.xlsx'
 
 CYR = str.maketrans({
     'А': 'A', 'Б': 'B', 'В': 'V', 'Г': 'G', 'Д': 'D', 'Ђ': 'Đ', 'Е': 'E', 'Ж': 'Ž',
@@ -64,44 +65,132 @@ def fines_body() -> str:
     return '\n'.join(lines).strip() + '\n'
 
 
-def checklist_body(sheet_name: str) -> str:
-    wb = openpyxl.load_workbook(LISTS, data_only=True)
-    ws = wb[sheet_name]
-    title = lat(ws.cell(1, 1).value) or lat(sheet_name) or sheet_name
+LEGEND_LINE = re.compile(
+    r'^(DA|NE|NP|A|B|V|G)(?:\s*[-–—]\s*(.+))?$',
+    re.IGNORECASE,
+)
+HEADER_ROWS = {'NAZIV SUBJEKTA', 'PITANJE'}
+
+
+def clean_text(value) -> str:
+    return ' '.join(lat(value).split())
+
+
+def _validated_rows(ws):
+    rows: set[int] = set()
+    values = None
+    validations = getattr(ws, 'data_validations', None)
+    if not validations:
+        return rows, values
+    for rule in validations.dataValidation:
+        formula = (rule.formula1 or '').strip().strip('"')
+        if (rule.type or '') != 'list' or not formula or formula.startswith('#'):
+            continue
+        parsed = [part.strip() for part in formula.split(',') if part.strip()]
+        if not parsed:
+            continue
+        for cell_range in rule.sqref.ranges:
+            if cell_range.min_col <= 3 <= cell_range.max_col:
+                values = parsed
+                rows.update(range(cell_range.min_row, cell_range.max_row + 1))
+    return rows, values
+
+
+def _legend(ws, codes):
+    meanings = {code: '' for code in codes}
+    wanted = {code.upper(): code for code in codes}
+    for row in ws.iter_rows(min_row=1, max_col=1, values_only=True):
+        text = clean_text(row[0] if row else '')
+        match = LEGEND_LINE.fullmatch(text)
+        if not match:
+            continue
+        code = wanted.get(match.group(1).upper())
+        if code is None:
+            continue
+        meaning = clean_text(match.group(2) or '')
+        if meaning.isupper():
+            meaning = meaning.capitalize()
+        meanings[code] = meaning
+    return [
+        {'value': code, 'label': code, 'meaning': meanings[code]}
+        for code in codes
+    ]
+
+
+def _render_body(title: str, scale, items) -> str:
     lines = [
         f'Kontrolna lista: {title}',
         '',
-        'Izvor: Kontrolne liste digital empty.xlsx (Food Compass).',
-        'Odgovori tipično: DA / NE / NP. Koristi za pripremu pred inspekciju.',
+        'Naziv subjekta:',
         '',
     ]
-    n = 0
-    skip_prefixes = (
-        'NAZIV SUBJEKTA', 'PITANJE', 'CHEKIRATI', 'ČEKIRATI', 'DA', 'NE',
-        'NP', 'NAPOMENA', 'PRIMERBE', 'PRIMERBE', 'PRIMEDbe',
-    )
-    for row in ws.iter_rows(min_row=2, values_only=True):
-        text = lat(row[0] if row else '')
+    number = 0
+    for item in items:
+        if item['type'] == 'section':
+            lines.extend(['', item['text'], ''])
+        elif item['type'] == 'q':
+            number += 1
+            lines.append(f"{number}. {item['text']}")
+        elif item['type'] == 'remarks':
+            lines.extend(['', 'PRIMEDBE I SUGESTIJE', ''])
+    lines.extend(['', 'Odgovori'])
+    for option in scale:
+        if option['meaning']:
+            lines.append(f"{option['label']} — {option['meaning']}")
+        else:
+            lines.append(option['label'])
+    return '\n'.join(lines).strip() + '\n'
+
+
+def parse_checklist(sheet_name: str) -> dict:
+    wb = openpyxl.load_workbook(LISTS, data_only=False)
+    ws = wb[sheet_name]
+    question_rows, scale_values = _validated_rows(ws)
+    if not scale_values:
+        raise ValueError(f'Lista {sheet_name} nema ponuđene odgovore.')
+    items = []
+    for row in range(1, ws.max_row + 1):
+        text = clean_text(ws.cell(row, 1).value)
         if not text:
             continue
         upper = text.upper()
-        if upper in {'DA', 'NE'} or upper.startswith('NP') or upper.startswith('NAPOMENA'):
+        if upper in HEADER_ROWS:
             continue
-        if upper.startswith('NAZIV SUBJEKTA') or upper == 'PITANJE':
-            continue
-        if upper.startswith('ČEKIRATI') or upper.startswith('CHEKIRATI'):
-            continue
-        if upper.startswith('PRIME'):
-            continue
-        # section headers vs questions
-        if text.endswith('?') or len(text) > 40 or text[:1].islower():
-            n += 1
-            lines.append(f'{n}. {text}')
-        else:
-            lines.append('')
-            lines.append(text.upper())
-            lines.append('')
-    return '\n'.join(lines).strip() + '\n'
+        if upper.startswith('PRIMEDBE'):
+            items.append({'type': 'remarks'})
+            break
+        if upper.startswith(('ČEKIRATI', 'CHEKIRATI', 'NAPOMENA')):
+            break
+        if row in question_rows:
+            items.append({'type': 'q', 'key': str(row), 'text': text})
+        elif row > 3:
+            items.append({'type': 'section', 'text': text})
+    title = clean_text(ws.cell(1, 2).value) or clean_text(ws.cell(1, 1).value) or sheet_name
+    scale = _legend(ws, scale_values)
+    return {
+        'sheet_title': title,
+        'body': _render_body(title, scale, items),
+        'checklist': {'scale': scale, 'items': items},
+    }
+
+
+def checklist_body(sheet_name: str) -> str:
+    return parse_checklist(sheet_name)['body']
+
+
+def _checklist_entry(code, title, sheet, sort_order):
+    parsed = parse_checklist(sheet)
+    return {
+        'code': code,
+        'kind': 'IN',
+        'title': title,
+        'source_filename': LISTS.name,
+        'body': parsed['body'],
+        'checklist': parsed['checklist'],
+        'is_fixed': True,
+        'note': '',
+        'sort_order': sort_order,
+    }
 
 
 def build_entries():
@@ -116,39 +205,17 @@ def build_entries():
             'note': '',
             'sort_order': 10,
         },
-        {
-            'code': 'IN-02',
-            'kind': 'IN',
-            'title': 'Kontrolna lista — sledljivost',
-            'source_filename': 'Kontrolne liste digital empty.xlsx',
-            'body': checklist_body('Следљивост'),
-            'is_fixed': True,
-            'note': '',
-            'sort_order': 20,
-        },
-        {
-            'code': 'IN-03',
-            'kind': 'IN',
-            'title': 'Kontrolna lista — higijena',
-            'source_filename': 'Kontrolne liste digital empty.xlsx',
-            'body': checklist_body('Хигијена'),
-            'is_fixed': True,
-            'note': '',
-            'sort_order': 30,
-        },
-        {
-            'code': 'IN-04',
-            'kind': 'IN',
-            'title': 'Kontrolna lista — HACCP',
-            'source_filename': 'Kontrolne liste digital empty.xlsx',
-            'body': checklist_body('HACCP'),
-            'is_fixed': True,
-            'note': '',
-            'sort_order': 40,
-        },
+        _checklist_entry('IN-02', 'Kontrolna lista — sledljivost', 'Sledljivost', 20),
+        _checklist_entry('IN-03', 'Kontrolna lista — higijena', 'Higijena', 30),
+        _checklist_entry('IN-04', 'Kontrolna lista — HACCP', 'HACCP', 40),
     ]
 
 
 if __name__ == '__main__':
-    for e in build_entries():
-        print(e['code'], e['title'], 'chars', len(e['body']))
+    for entry in build_entries():
+        checklist = entry.get('checklist') or {}
+        items = checklist.get('items', [])
+        questions = [item for item in items if item['type'] == 'q']
+        sections = [item['text'] for item in items if item['type'] == 'section']
+        scale = [option['value'] for option in checklist.get('scale', [])]
+        print(entry['code'], entry['title'], 'q', len(questions), 'sections', sections, 'scale', scale)

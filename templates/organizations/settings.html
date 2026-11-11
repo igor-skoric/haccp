@@ -17,9 +17,6 @@
           <strong>Konfiguracija</strong>
         </a>
       {% endif %}
-      <a href="{% url 'dashboard' %}">
-        <strong>Dokumentacija</strong>
-      </a>
       <form method="post" action="{% url 'logout' %}">
         {% csrf_token %}
         <button class="settings-logout" type="submit">Odjava</button>

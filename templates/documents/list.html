@@ -13,6 +13,9 @@
           <span class="doc-main">
             <strong>{{ document.title }}</strong>
             <span>{{ document.source_filename }}</span>
+            {% if document.progress_label %}
+              <span>{{ document.progress_label }}</span>
+            {% endif %}
           </span>
           {% if document.is_fixed %}
             <span class="pill">Isto za sve</span>

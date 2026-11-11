@@ -1,6 +1,5 @@
 from django.contrib.auth.decorators import login_required
 from django.shortcuts import redirect, render
-from django.urls import reverse
 
 from accounts.permissions import is_platform_admin
 from documents.views import library_counts
@@ -25,6 +24,5 @@ def dashboard(request):
     return render(request, 'core/dashboard.html', {
         'industry': industry,
         'cards': library_counts(),
-        'nav': 'settings',
-        'back_url': reverse('settings'),
+        'nav': 'docs',
     })
